@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<!--PLEASE improve the style bro please bro pls-->
 <style>
     .center-screen {
         display: flex;
@@ -27,19 +28,27 @@
 
 <div class="center-screen">
     <form action="/writetomarkers" method="POST">
-        <label for="text">Text:</label>
-        <input type="text" id="text" name="text"><br><br>
+        <label for="text">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
 
-        <label for="latitude">Latitude:</label>
-        <input type="text" id="latitude" name="latitude"><br><br>
+        <label for="image">Image SRC:</label>
+        <input type="text" id="image" name="image"><br><br>
 
-        <label for="longitude">Longitude:</label>
-        <input type="text" id="longitude" name="longitude"><br><br>
+        <label for="bio">Biography:</label>
+        <input type="text" id="bio" name="bio"><br><br>
+
+        <label for="r1">Relationship 1:</label>
+        <input type="text" id="r1" name="r1"><br><br>
+        
+        <label for="r2">Relationship 2:</label>
+        <input type="text" id="r2" name="r2"><br><br>
+
+        <!--PLEASE NOTE: select-type input fields are still accepted as form data, for more info see here: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select-->
 
         <input class="file_submit" type="Submit">
     </form>
 
-    <a href="geo">
+    <a href="landing">
         <button type="button">Back</button>
     </a>
 

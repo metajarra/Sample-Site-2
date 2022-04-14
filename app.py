@@ -1,16 +1,30 @@
 from operator import length_hint
 import os
+import pickle
+import json
 from flask import Flask, render_template, url_for, request
 
-# The goal of this app is to show messages sent across space, not across time
-# Messages are organized according to the lat/long of where they were sent from (rounded to int)
+# CHANGES TO MAKE:
+# - geo.html is fine. maybe should be renamed, but otherwise the way it's organized here and its relations to other files are at least ok for now.
+# - makepost.html is also fine. again maybe should be renamed, but it works ok.
+# - writetomarkers has to be changed. specifically, it should both be renamed and should be reconfigured to use JSON to write unique classes (maybe? ideally?)  of characters to the list. this is the most important part by far
+# - seeposts.html is fine, but should be renamed.
+# - display.html has to be slightly changed, to give an int index instead of index read as it is now.
+
+class Character:
+    def __init__(self, name, image, bio, r1, r2):
+        self.name = name
+        self.image = image
+        self.bio = bio
+        self.r1 = r1
+        self.r2 = r2
 
 app = Flask(__name__)
 
 @app.route("/")
-@app.route("/geo")
+@app.route("/landing")
 def geo():
-    return render_template("geo.html")
+    return render_template("landing.html")
 
 @app.route("/makepost")
 def makepost():
@@ -27,32 +41,26 @@ def seeposts():
 @app.route("/writetomarkers", methods=["POST", "GET"])
 def writeToMarkers():    
     output = request.form.to_dict()
-    text = output["text"]
-    lat = output["latitude"]
-    long = output["longitude"]
     
-    m = open("marker_count.txt", "r")
-    n = open("markers.txt", "r")
-
-    current_m = int(m.read())
-
-    message = "M" + str(current_m) + "|" + text + "|" + lat + "|" + long
+    # Get each element from the form as a unique string
     
-    current_m += 1
+    name = output["name"]
+    image = output["image"]
+    bio = output["bio"]
+    r1 = output["r1"]
+    r2 = output["r2"]
 
-    current_n = n.read()
+    # OPTION 1:
+    # Define a new class, and create a new instance of it using the form elements as constructor parameters
+    newCharacter = Character(name, image, bio, r1, r2)
 
-    m.close()
-    n.close()
+    # OPTION 2:
+    # Get multiple lists (either in a single file or in multiple files), each list storing a certain element (name, image src, etc.), and write each form element to these lists at the same index
 
-    m = open("marker_count.txt", "w")
-    n = open("markers.txt", "w")
-
-    m.write(str(current_m))
-    n.write(current_n + "/" + message)
-
-    m.close()
-    n.close()
+    # Write the new stuff to the appropriate file(s)
+    print("sexo")
+    print("------")
+    print("Name " + name)
 
     return render_template("makepost.html")
     
