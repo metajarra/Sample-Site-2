@@ -32,7 +32,7 @@ def makepost():
 
 @app.route("/seeposts")
 def seeposts():
-    n = open("markers.txt", "r")
+    n = open("characters.txt", "r")
     _markers = n.read()
     n.close()
 
@@ -43,7 +43,6 @@ def writeToMarkers():
     output = request.form.to_dict()
     
     # Get each element from the form as a unique string
-    
     name = output["name"]
     image = output["image"]
     bio = output["bio"]
@@ -58,9 +57,8 @@ def writeToMarkers():
     # Get multiple lists (either in a single file or in multiple files), each list storing a certain element (name, image src, etc.), and write each form element to these lists at the same index
 
     # Write the new stuff to the appropriate file(s)
-    print("sexo")
-    print("------")
-    print("Name " + name)
+    with open("characters_test.json", "w") as f:
+        json.dump(newCharacter, f, indent = 2)
 
     return render_template("makepost.html")
     
