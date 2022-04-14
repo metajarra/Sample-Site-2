@@ -19,8 +19,6 @@ class Character:
         self.r1 = r1
         self.r2 = r2
 
-characters = []
-
 app = Flask(__name__)
 
 @app.route("/")
@@ -57,13 +55,15 @@ def writeToMarkers():
     # OPTION 1:
     # Define a new class, and create a new instance of it using the form elements as constructor parameters
     newCharacter = Character(name, image, bio, r1, r2)
-    characters.append(newCharacter)
 
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"
     outfile = open(filename, "wb")
 
-    pickle.dump(characters, outfile)
+    fileList = pickle.load(outfile)
+    fileList.append(newCharacter)
+
+    pickle.dump(fileList, outfile)
     
     outfile.close()
 
