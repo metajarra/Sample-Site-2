@@ -82,6 +82,8 @@ def writeToMarkers():
         pickleContent.append(newCharacter)
         pickle.dump(picklefile, pickleContent)
 
+    picklefile.close()
+
     # seems to work fine so far
     return render_template("makepost.html")
     
