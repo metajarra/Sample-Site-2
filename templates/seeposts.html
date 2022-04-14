@@ -19,7 +19,8 @@
 <body>
     <form action="/display" method="POST">
         {% if characters %}
-            <p>{{ characters[1].name }}</p>
+            <p>0: {{ characters[0].name }}</p>
+            <p>1: {{ characters[1].name }}</p>
         {% endif %}
     </form>
 </body>
