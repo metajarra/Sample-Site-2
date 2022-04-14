@@ -19,7 +19,12 @@
 <body>
     <form action="/display" method="POST">
         {% if characters %}
-            characters.length;
+            <script>
+                let charactersL = "{{ characters }}"
+                console.log(charactersL);
+                console.log(charactersL.length);
+                console.log(charactersL[1]);
+            </script>
         {% endif %}
     </form>
 </body>
