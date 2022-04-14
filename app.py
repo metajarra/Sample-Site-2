@@ -20,7 +20,6 @@ class Character:
         self.r2 = r2
 
 characters = []
-tempcount = 0
 
 app = Flask(__name__)
 
@@ -42,6 +41,12 @@ def seeposts():
 
     infile.close
 
+    countfile = open("character_count.txt", "r")
+
+    tempcount = int(countfile.read())
+
+    countfile.close()
+
     return render_template("seeposts.html", characters = oldCharacters, chars2 = characters, count = tempcount)
 
 @app.route("/writetomarkers", methods=["POST", "GET"])
@@ -59,7 +64,6 @@ def writeToMarkers():
     # Define a new class, and create a new instance of it using the form elements as constructor parameters
     newCharacter = Character(name, image, bio, r1, r2)
     characters.append(newCharacter)
-    tempcount = tempcount + 1
 
     # OPTION 2:
     # Get multiple lists (either in a single file or in multiple files), each list storing a certain element (name, image src, etc.), and write each form element to these lists at the same index
@@ -71,6 +75,20 @@ def writeToMarkers():
     pickle.dump(characters, outfile)
     
     outfile.close()
+
+    countfile = open("character_count.txt", "r")
+
+    tempcount = int(countfile.read())
+
+    countfile.close()
+
+    countfile = open("character_count.txt", "w")
+
+    tempcount += 1
+
+    countfile.write(tempcount)
+
+    countfile.close()
 
     # seems to work fine so far
     return render_template("makepost.html")
