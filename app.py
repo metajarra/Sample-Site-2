@@ -55,6 +55,7 @@ def writeToMarkers():
     # OPTION 1:
     # Define a new class, and create a new instance of it using the form elements as constructor parameters
     newCharacter = Character(name, image, bio, r1, r2)
+    teststring = "bo"
 
     # OPTION 2:
     # Get multiple lists (either in a single file or in multiple files), each list storing a certain element (name, image src, etc.), and write each form element to these lists at the same index
@@ -62,8 +63,8 @@ def writeToMarkers():
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"
     
-    thisfile = open(filename, "a")
-    pickle.dump(newCharacter, thisfile)
+    thisfile = open(filename, "ab")
+    pickle.dump(teststring, thisfile)
     thisfile.close()
 
     # seems to work fine so far
