@@ -62,17 +62,9 @@ def writeToMarkers():
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"
     
-    characters = []
-
-    if os.path.exists(filename):
-        with open(filename, "rb") as rfp:
-            characters = pickle.load(rfp)
-
-    if characters != None and characters != "":
-        characters.append(newCharacter)
-
-    with open(filename, "wb") as wfp:
-        pickle.dump(characters, wfp)
+    thisfile = open(filename, "wb")
+    pickle.dump(newCharacter, thisfile)
+    thisfile.close()
 
     # seems to work fine so far
     return render_template("makepost.html")
