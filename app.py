@@ -65,11 +65,10 @@ def writeToMarkers():
     
     thisfile = open(filename, "rb")
     temp = pickle.load(thisfile)
-    temp += teststring
     thisfile.close()
 
     thisfile = open(filename, "wb")
-    pickle.dump(temp, thisfile)
+    pickle.dump(teststring, thisfile)
     thisfile.close()
 
     # seems to work fine so far
