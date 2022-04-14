@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<style>
+    .parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.image1 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.image2 {
+  position: absolute;
+}
+</style>
+
+<!--marker png: https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Roundel_of_Turkey.svg/120px-Roundel_of_Turkey.svg.png-->
+<!--map jpg: https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg-->
+
+<body> <!--position guide: 8.5 px = 1 degree. prime meridian: 1531 px, equator: 765 px-->
+    <form action="/display" method="POST">
+        <div class="parent" width="3087" height="1554">
+            <div id="image1" class="image1">
+                <img src="{{ map }}" width="3087" height="1554">
+
+                {% if markers %}
+
+                    <script>
+                        let markers = "{{ markers }}";
+                        let breaks = [];
+                        let newbreaks = [];
+
+                        let serial = "";
+                        let text = "";
+                        let lat = 0;
+                        let long = 0;
+
+                        for(let i = 0; i < markers.length; i++){
+                            if(markers.charAt(i) == "|"){
+                                breaks.push(i);
+                            }
+
+                            else if(markers.charAt(i) == "/"){
+                                newbreaks.push(i);
+                            }
+
+                            // The content between every element in newbreaks[] ("/") is a unique message
+                            // The content between every element in breaks[] ("|") is as follows:
+                            /*
+                            - The first |, and every third | following it (any | where index(|) = 3n, where n is a nonnegative integer), delineates the split between serial number and text content
+                               - The serial number is the text between any / and the appropriate |
+                            - The second |, and every third | following it (any | where index(|) = 1 + 3n), delineates the split between the text and the first coordinate (lat)
+                               - The text is the text between the appropriate | and the previous |
+                            - The third |, and every third | following it (any | where index(|) = 2 + 3n), delineates the split between the first coordinate and the second coordinate (long)
+                               - The latitude is the text between the appropriate | and the previous |
+                               - The longitude is the text between the appropriate | and the next /
+                            */
+                        }
+
+                        for(let i = 0; i < newbreaks.length; i++){
+                            for(let j = 0; j < 3; j++){
+                                if(j % 3 == 0){
+                                    console.log("SERIAL NUMBER: " + markers.substring(newbreaks[i] + 1, breaks[j + (3 * i)]));
+                                    serial = markers.substring(newbreaks[i] + 1, breaks[j + (3 * i)]);
+                                }
+
+                                else if((j - 1) % 3 == 0){
+                                    console.log("TEXT: " + markers.substring(breaks[j - 1 + (3 * i)] + 1, breaks[j + (3 * i)]));
+                                    text = markers.substring(breaks[j - 1 + (3 * i)] + 1, breaks[j + (3 * i)]);
+                                }
+
+                                else if((j - 2) % 3 == 0){
+                                    console.log("LATITUDE: " + markers.substring(breaks[j - 1 + (3 * i)] + 1, breaks[j + (3 * i)]));
+                                    lat = parseInt(markers.substring(breaks[j - 1 + (3 * i)] + 1, breaks[j + (3 * i)]));
+                                    
+                                    if(i < newbreaks.length){
+                                        console.log("LONGITUDE: " + markers.substring(breaks[j + (3 * i)] + 1, newbreaks[i + 1]));
+                                        long = parseInt(markers.substring(breaks[j + (3 * i)] + 1, newbreaks[i + 1]));
+                                    }
+
+                                    else{
+                                        console.log("LONGITUDE: " + markers.substring(breaks[j + (3 * i)] + 1, markers.length()));
+                                        long = parseInt(markers.substring(breaks[j + (3 * i)] + 1, markers.length()));
+                                    }
+                                    
+                                    console.log("------");
+                                }
+                            }
+
+                            let x = long * 8.5 + 1531 - 6; // -6 to account for slight icon offset
+                            let y = lat * -8.5 + 765;
+
+                            const newimage = document.createElement("button");
+
+                            newimage.type = "submit"
+                            newimage.value = serial;
+                            newimage.name = "marker_button";
+                            newimage.className = "image2";
+                            newimage.style = "background-color: transparent; background-repeat: no-repeat; border: none; overflow: hidden; top: " + y.toString() + "px; left: " + x.toString() + "px;";
+                            newimage.width = "24";
+                            newimage.height = "24";
+                            
+                            newimage.innerHTML = "<img src={{ marker }} width=24px height=24px>"
+
+                            document.getElementById("image1").appendChild(newimage);
+                        }
+                    </script>
+
+                {% endif %}
+            </div>
+        </div>
+    </form>
+</body>
