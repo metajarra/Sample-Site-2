@@ -32,11 +32,14 @@ def makepost():
 
 @app.route("/seeposts")
 def seeposts():
-    n = open("characters.txt", "r")
-    _markers = n.read()
-    n.close()
+    filename = "characters_pickled"
+    infile = open(filename, "rb")
 
-    return render_template("seeposts.html", map = "https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg", marker = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Roundel_of_Turkey.svg/120px-Roundel_of_Turkey.svg.png", markers = _markers)
+    oldCharacter = pickle.load(infile)
+
+    infile.close
+
+    return render_template("seeposts.html", character = oldCharacter)
 
 @app.route("/writetomarkers", methods=["POST", "GET"])
 def writeToMarkers():    
@@ -64,6 +67,7 @@ def writeToMarkers():
     
     outfile.close()
 
+    # seems to work fine so far
     return render_template("makepost.html")
     
 @app.route("/display", methods=["POST", "GET"])
