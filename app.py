@@ -86,7 +86,7 @@ def writeToMarkers():
 
     tempcount += 1
 
-    countfile.write(tempcount)
+    countfile.write(str(tempcount))
 
     countfile.close()
 
