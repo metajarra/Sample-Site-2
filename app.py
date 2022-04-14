@@ -1,6 +1,6 @@
 from operator import length_hint
 import os
-import dill as pickle
+import pickle
 import json
 from flask import Flask, render_template, url_for, request
 
@@ -37,7 +37,7 @@ def seeposts():
     filename = "characters_pickled"
     infile = open(filename, "rb")
 
-    picklecharacters = characters
+    picklecharacters = pickle.load(infile)
 
     infile.close()
 
