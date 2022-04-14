@@ -68,7 +68,8 @@ def writeToMarkers():
         with open(filename, "rb") as rfp:
             characters = pickle.load(rfp)
 
-    characters.append(newCharacter)
+    if characters != None and characters != "":
+        characters.append(newCharacter)
 
     with open(filename, "wb") as wfp:
         pickle.dump(characters, wfp)
