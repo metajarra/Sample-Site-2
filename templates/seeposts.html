@@ -18,10 +18,11 @@
 
 <body>
     <form action="/display" method="POST">
-        <p>{{ characters[1].name }}</p>
-        <p>{{ characters[1].image }}</p>
-        <p>{{ characters[1].bio }}</p>
-        <p>{{ characters[1].r1 }}</p>
-        <p>{{ characters[1].r2 }}</p>
+        {% if characters %}
+            <script>
+                let _characters = characters
+                console.log(characters.length)
+            </script>
+        {% endif %}
     </form>
 </body>
