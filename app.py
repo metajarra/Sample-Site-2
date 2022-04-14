@@ -20,6 +20,7 @@ class Character:
         self.r2 = r2
 
 characters = []
+tempcount = 0
 
 app = Flask(__name__)
 
@@ -41,7 +42,7 @@ def seeposts():
 
     infile.close
 
-    return render_template("seeposts.html", characters = oldCharacters, chars2 = characters)
+    return render_template("seeposts.html", characters = oldCharacters, chars2 = characters, count = tempcount)
 
 @app.route("/writetomarkers", methods=["POST", "GET"])
 def writeToMarkers():    
@@ -58,6 +59,7 @@ def writeToMarkers():
     # Define a new class, and create a new instance of it using the form elements as constructor parameters
     newCharacter = Character(name, image, bio, r1, r2)
     characters.append(newCharacter)
+    tempcount += 1
 
     # OPTION 2:
     # Get multiple lists (either in a single file or in multiple files), each list storing a certain element (name, image src, etc.), and write each form element to these lists at the same index
