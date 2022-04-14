@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<style>
+    .center-screen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+    }
+
+    button {
+        font-size: larger;
+        color: aliceblue;
+        background-color: darkcyan;
+        margin: 1%;
+    }
+
+    label {
+        margin: 1%;
+    }
+
+    div {
+        background-color: lightblue;
+    }
+</style>
+
+<div class="center-screen">
+    <form action="/writetomarkers" method="POST">
+        <label for="text">Text:</label>
+        <input type="text" id="text" name="text"><br><br>
+
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude"><br><br>
+
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude"><br><br>
+
+        <input class="file_submit" type="Submit">
+    </form>
+
+    <a href="geo">
+        <button type="button">Back</button>
+    </a>
+
+    <!--<a href="seeposts">
+        
+    </a>-->
+</div>
