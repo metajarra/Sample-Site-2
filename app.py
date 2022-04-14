@@ -19,6 +19,8 @@ class Character:
         self.r1 = r1
         self.r2 = r2
 
+characters = []
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -35,11 +37,11 @@ def seeposts():
     filename = "characters_pickled"
     infile = open(filename, "rb")
 
-    picklecharacters = pickle.load(infile)
+    oldCharacter = pickle.load(infile)
 
-    infile.close()
+    infile.close
 
-    return render_template("seeposts.html", characters = picklecharacters, index = 1)
+    return render_template("seeposts.html", character = oldCharacter)
 
 @app.route("/writetomarkers", methods=["POST", "GET"])
 def writeToMarkers():    
@@ -55,20 +57,16 @@ def writeToMarkers():
     # OPTION 1:
     # Define a new class, and create a new instance of it using the form elements as constructor parameters
     newCharacter = Character(name, image, bio, r1, r2)
+    characters.append(newCharacter)
+
+    # OPTION 2:
+    # Get multiple lists (either in a single file or in multiple files), each list storing a certain element (name, image src, etc.), and write each form element to these lists at the same index
 
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"
+    outfile = open(filename, "wb")
 
-    tempfile = open(filename, "rb")
-
-    fileList = pickle.load(tempfile)
-
-    tempfile.close()
-
-    outfile = open(filename, "wb")    
-
-    initFileList = [newCharacter]
-    pickle.dump(initFileList, outfile)
+    pickle.dump(characters, outfile)
     
     outfile.close()
 
