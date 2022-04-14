@@ -67,13 +67,8 @@ def writeToMarkers():
 
     outfile = open(filename, "wb")    
 
-    if fileList != None:
-        fileList.append(newCharacter)
-        pickle.dump(fileList, outfile)
-    
-    else:
-        initFileList = [newCharacter]
-        pickle.dump(initFileList, outfile)
+    initFileList = [newCharacter]
+    pickle.dump(initFileList, outfile)
     
     outfile.close()
 
