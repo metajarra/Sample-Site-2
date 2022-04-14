@@ -34,7 +34,14 @@ def makepost():
 
 @app.route("/seeposts")
 def seeposts():
-    return render_template("seeposts.html", characters = characters)
+    filename = "characters_pickled"
+    infile = open(filename, "rb")
+
+    oldCharacters = pickle.load(infile)
+
+    infile.close()
+
+    return render_template("seeposts.html", characters = oldCharacters)
 
 @app.route("/writetomarkers", methods=["POST", "GET"])
 def writeToMarkers():    
