@@ -62,10 +62,6 @@ def writeToMarkers():
 
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"
-    
-    thisfile = open(filename, "rb")
-    temp = pickle.load(thisfile)
-    thisfile.close()
 
     thisfile = open(filename, "wb")
     pickle.dump(teststring, thisfile)
