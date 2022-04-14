@@ -19,10 +19,8 @@
 <body>
     <form action="/display" method="POST">
         {% if characters %}
-            <script>
-                let _characters = characters
-                console.log(characters.length)
-            </script>
+            console.log({{ characters }});
+            console.log(characters);
         {% endif %}
     </form>
 </body>
