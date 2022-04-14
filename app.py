@@ -59,7 +59,7 @@ def writeToMarkers():
     # Define a new class, and create a new instance of it using the form elements as constructor parameters
     newCharacter = Character(name, image, bio, r1, r2)
     characters.append(newCharacter)
-    tempcount += 1
+    #tempcount += 1
 
     # OPTION 2:
     # Get multiple lists (either in a single file or in multiple files), each list storing a certain element (name, image src, etc.), and write each form element to these lists at the same index
