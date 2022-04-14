@@ -62,27 +62,16 @@ def writeToMarkers():
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"
     
-    isEmpty = False
+    characters = []
 
-    picklefile = open(filename, "rb")
+    if os.path.exists(filename):
+        with open(filename, "rb") as rfp:
+            characters = pickle.load(rfp)
 
-    pickleContent = pickle.load(picklefile)
-    if pickleContent == None or pickleContent == "":
-        isEmpty = True
+    characters.append(newCharacter)
 
-    picklefile.close()
-
-    picklefile = open(filename, "wb")
-
-    if isEmpty:
-        templist = [newCharacter]
-        pickle.dump(picklefile, templist)
-
-    else:
-        pickleContent.append(newCharacter)
-        pickle.dump(picklefile, pickleContent)
-
-    picklefile.close()
+    with open(filename, "wb") as wfp:
+        pickle.dump(characters, wfp)
 
     # seems to work fine so far
     return render_template("makepost.html")
