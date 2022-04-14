@@ -41,7 +41,7 @@ def seeposts():
 
     infile.close()
 
-    return render_template("seeposts.html", characters = oldCharacters)
+    return render_template("seeposts.html", characters = oldCharacters, index = 1)
 
 @app.route("/writetomarkers", methods=["POST", "GET"])
 def writeToMarkers():    
