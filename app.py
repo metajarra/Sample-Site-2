@@ -57,8 +57,12 @@ def writeToMarkers():
     # Get multiple lists (either in a single file or in multiple files), each list storing a certain element (name, image src, etc.), and write each form element to these lists at the same index
 
     # Write the new stuff to the appropriate file(s)
-    with open("characters_test.json", "w") as f:
-        json.dump(newCharacter, f, indent = 2)
+    filename = "characters_pickled"
+    outfile = open(filename, "wb")
+
+    pickle.dump(newCharacter, outfile)
+    
+    outfile.close()
 
     return render_template("makepost.html")
     
