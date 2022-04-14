@@ -1,6 +1,6 @@
 from operator import length_hint
 import os
-import pickle
+import dill as pickle
 import json
 from flask import Flask, render_template, url_for, request
 
