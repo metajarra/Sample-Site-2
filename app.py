@@ -115,7 +115,7 @@ def display():
 
         selectCharacter = oldCharacters[int(index)]
 
-    return render_template("display.html", numchosen = index, character = selectCharacter)
+    return render_template("display.html", character = selectCharacter)
 
 if __name__ == "__main__":
     app.run()

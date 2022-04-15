@@ -36,8 +36,11 @@
 <body>
     <div class="center-screen" id="maindiv">
         <form method="/POST">
-            <p>Character Number Chosen: {{ numchosen }}</p>
-            <p>Character Name Chosen: {{ character.name }}</p>
+            <p>Name: {{ character.name }}</p>
+            <img src="{{ character.image }}">
+            <p>Bio: {{ character.bio }}</p>
+            <p>Relationship 1: {{ character.r1 }}</p>
+            <p>Relationship 2: {{ character.r2 }}</p>
         </form>
     </div>
 </body>
