@@ -1,3 +1,4 @@
+from imghdr import tests
 from operator import length_hint
 import os
 import pickle
@@ -53,22 +54,42 @@ def writeToMarkers():
     r1 = output["r1"]
     r2 = output["r2"]
 
-    # OPTION 1:
     # Define a new class, and create a new instance of it using the form elements as constructor parameters
     newCharacter = Character(name, image, bio, r1, r2)
-    teststring = [4]
-
-    # OPTION 2:
-    # Get multiple lists (either in a single file or in multiple files), each list storing a certain element (name, image src, etc.), and write each form element to these lists at the same index
+    teststring = 4
 
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"
+    countfile = "character_count.txt"
 
-    thisfile = open(filename, "wb")
-    pickle.dump(teststring, thisfile)
-    thisfile.close()
+    f1 = open(countfile, "r")
+    charcount = int(f1.read())
 
-    # seems to work fine so far
+    if charcount == 0: # Indicates that this is the first character
+        f1.close()
+
+        f1 = open(countfile, "w")
+        f1.write("1")
+        f1.close()
+
+        f2 = open(filename, "wb")
+        testinitarray = [teststring]
+        pickle.dump(testinitarray, f2)
+        f2.close()
+    
+    else: # Indicates that this is not the first character
+        f1.close()
+
+        f2 = open(filename, "rb")
+        currentlist = pickle.load(f2)
+        f2.close()
+
+        currentlist.append(teststring)
+
+        f2 = open(filename, "wb")
+        pickle.dump(currentlist, f2)
+        f2.close()
+
     return render_template("makepost.html")
     
 @app.route("/display", methods=["POST", "GET"])
