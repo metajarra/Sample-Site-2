@@ -26,60 +26,27 @@
         background: transparent;
         border: none;
         margin: 1%;
-        text-align: center;
     }
 
     .buttondiv {
         border: solid rgb(242, 242, 242);
-        align-items: center;
-    }
-
-    .tooltip {
-        width: 240px;
-        position: relative;
-        display: inline-block;
-        align-items: center;
-    }
-
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 240px;
-        background-color: darkgrey;
-        color:rgb(242, 242, 242);
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 4px;
-
-        bottom: 100%;
-        left: 50%;
-        margin-left: -120px;
-    }
-
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
     }
 </style>
 
 <div class="center-screen">
     <div class="buttons-vertical">
         <div class="buttondiv">
-            <div class="tooltip">
-                <span class="tooltiptext">deez nuts</span>
-                <a href="makepost">
-                    <button type="button">CREATE</button>
-                </a>
-            </div>
+            <a href="makepost">
+                <button type="button">CREATE</button>
+            </a>
         </div>
 
         <br>
 
         <div class="buttondiv">
-            <div class="tooltip">
-                <span class="tooltiptext">lmao</span>
-                <a href="seeposts">
-                    <button type="button">SEE ALL</button>
-                </a>
-            </div>
+            <a href="seeposts">
+                <button type="button">SEE ALL</button>
+            </a>
         </div>
     </div>
 </div>
