@@ -10,6 +10,7 @@
         align-items: center;
         text-align: center;
         min-height: 100vh;
+        background-color: rgb(13, 13, 13);
     }
 
     button {
@@ -20,19 +21,23 @@
         margin: 1%;
     }
 
-    div {
-        background-color: rgb(13, 13, 13);
+    .buttondiv {
+        border: solid red;
     }
 </style>
 
 <div class="center-screen">
-    <a href="makepost">
-        <button type="button">Create a character</button>
-    </a>
+    <div class="buttondiv">
+        <a href="makepost">
+            <button type="button">CREATE A CHARACTER</button>
+        </a>
+    </div>
 
     <br>
 
-    <a href="seeposts">
-        <button type="button">See all characters</button>
-    </a>
+    <div class="buttondiv">
+        <a href="seeposts">
+            <button type="button">SEE ALL CHARACTERS</button>
+        </a>
+    </div>
 </div>
