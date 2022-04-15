@@ -1,3 +1,4 @@
+from enum import unique
 from imghdr import tests
 from operator import length_hint
 import os
@@ -13,12 +14,13 @@ from flask import Flask, render_template, url_for, request
 # - display.html has to be slightly changed, to give an int index instead of index read as it is now.
 
 class Character:
-    def __init__(self, name, image, bio, r1, r2):
+    def __init__(self, name, image, bio, r1, r2, UniqueID):
         self.name = name
         self.image = image
         self.bio = bio
         self.r1 = r1
         self.r2 = r2
+        self.UniqueID = UniqueID
 
 app = Flask(__name__)
 
@@ -57,15 +59,15 @@ def writeToCharacters():
     r1 = output["r1"]
     r2 = output["r2"]
 
-    # Define a new class, and create a new instance of it using the form elements as constructor parameters
-    newCharacter = Character(name, image, bio, r1, r2)
-
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"
     countfile = "character_count.txt"
 
     f1 = open(countfile, "r")
     charcount = int(f1.read())
+    
+    # Define a new class, and create a new instance of it using the form elements as constructor parameters
+    newCharacter = Character(name, image, bio, r1, r2, charcount)
 
     if charcount == 0: # Indicates that this is the first character
         f1.close()
