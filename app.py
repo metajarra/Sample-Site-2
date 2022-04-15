@@ -103,15 +103,11 @@ def writeToCharacters():
     
 @app.route("/display", methods=["POST", "GET"])
 def display():
-    marker_index = ""
+    index = ""
     if request.method == "POST":
-        marker_index = request.form["marker_button"]
-        
-        n = open("markers.txt", "r")
-        ncontent = n.read()
-        n.close()
+        index = request.form["character_input_button"]
 
-    return render_template("display.html", content = ncontent, index = marker_index)
+    return render_template("display.html", numchosen = index)
 
 if __name__ == "__main__":
     app.run()
