@@ -20,14 +20,11 @@
     <form action="/display" method="POST">
         <div maindiv id="maindiv">
             {% if characters %}
-                <script>
-                    let charlist = "{{ characters }}";
-                    let charcount = parseInt("{{ charcount }}");
-
-                    console.log("{{ characters[0].name }}");
-                    console.log("{{ characters[1].name }}");
-                    console.log(`{{ characters[${1}].name }}`);
-                </script>
+                {% for item in characters %}
+                    <script>
+                        console.log("{{ item.name }}");
+                    </script>
+                {% endfor %}
             {% endif %}
         </div>
     </form>
