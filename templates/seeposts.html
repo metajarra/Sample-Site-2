@@ -23,10 +23,7 @@
                 {% for item in characters %}
                     <script>
                         console.log("{{ item.name }}");
-
-                        const newpara = document.createElement("p");
-                        newpara.innerHTML = "Name: {{ item.name }}";
-                        document.getElementById("maindiv").append(newpara);
+                        document.getElementById("maindiv").append(document.createElement("p").innerHTML = "Name: {{ item.name }}");
                     </script>
                 {% endfor %}
             {% endif %}
