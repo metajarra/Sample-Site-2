@@ -42,8 +42,8 @@ def seeposts():
 
     return render_template("seeposts.html", characters = oldCharacters)
 
-@app.route("/writetomarkers", methods=["POST", "GET"])
-def writeToMarkers():    
+@app.route("/writetochars", methods=["POST", "GET"])
+def writeToCharacters():    
     output = request.form.to_dict()
     
     # Get each element from the form as a unique string
@@ -88,6 +88,7 @@ def writeToMarkers():
         pickle.dump(currentlist, f2)
         f2.close()
 
+    # Done
     return render_template("makepost.html")
     
 @app.route("/display", methods=["POST", "GET"])

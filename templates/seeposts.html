@@ -18,8 +18,15 @@
 
 <body>
     <form action="/display" method="POST">
-        {% if characters %}
-            <p>Chars: {{ characters }}</p>
-        {% endif %}
+        <div maindiv id="maindiv">
+            {% if characters %}
+                <script>
+                    let charlist = "{{ characters }}";
+
+                    const newpara = document.createElement("p");
+                    newpara.innerHTML = "{{ characters[0].name }}";
+                </script>
+            {% endif %}
+        </div>
     </form>
 </body>
