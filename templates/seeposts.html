@@ -24,8 +24,7 @@
                     let charlist = "{{ characters }}";
                     let charcount = parseInt("{{ charcount }}");
 
-                    console.log(charlist);
-                    console.log(charcount);
+                    console.log("{{ characters[" + String(charcount - 1) +"].name");
                 </script>
             {% endif %}
         </div>
