@@ -113,7 +113,9 @@ def display():
         oldCharacters = pickle.load(infile)
         infile.close
 
-    return render_template("display.html", numchosen = index, characters = oldCharacters)
+        selectCharacter = oldCharacters[int(index)]
+
+    return render_template("display.html", numchosen = index, character = selectCharacter)
 
 if __name__ == "__main__":
     app.run()
