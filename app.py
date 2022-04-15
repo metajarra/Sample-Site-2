@@ -55,7 +55,6 @@ def writeToMarkers():
 
     # Define a new class, and create a new instance of it using the form elements as constructor parameters
     newCharacter = Character(name, image, bio, r1, r2)
-    teststring = 4
 
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"
@@ -72,8 +71,8 @@ def writeToMarkers():
         f1.close()
 
         f2 = open(filename, "wb")
-        testinitarray = [teststring]
-        pickle.dump(testinitarray, f2)
+        initarray = [newCharacter]
+        pickle.dump(initarray, f2)
         f2.close()
     
     else: # Indicates that this is not the first character
@@ -83,7 +82,7 @@ def writeToMarkers():
         currentlist = pickle.load(f2)
         f2.close()
 
-        currentlist.append(teststring)
+        currentlist.append(newCharacter)
 
         f2 = open(filename, "wb")
         pickle.dump(currentlist, f2)
