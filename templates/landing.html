@@ -16,8 +16,12 @@
         min-height: 100vh;
     }
 
-    button {
+    .buttons-vertical {
+        margin-bottom: 5px;
         display: block;
+    }
+
+    button {
         font-size: larger;
         color: rgb(242, 242, 242);
         background: transparent;
@@ -31,17 +35,19 @@
 </style>
 
 <div class="center-screen">
-    <div class="buttondiv">
-        <a href="makepost">
-            <button type="button">CREATE A CHARACTER</button>
-        </a>
-    </div>
+    <div class="buttons-vertical">
+        <div class="buttondiv">
+            <a href="makepost">
+                <button type="button">CREATE A CHARACTER</button>
+            </a>
+        </div>
 
-    <br>
+        <br>
 
-    <div class="buttondiv">
-        <a href="seeposts">
-            <button type="button">SEE ALL CHARACTERS</button>
-        </a>
+        <div class="buttondiv">
+            <a href="seeposts">
+                <button type="button">SEE ALL CHARACTERS</button>
+            </a>
+        </div>
     </div>
 </div>
