@@ -2,7 +2,6 @@
 <!--See comments in app.py for an explanation of what this app does-->
 <!--This is the landing page-->
 
-<!--improve style-->
 <style>
     body {
         background-color: rgb(13, 13, 13);
@@ -32,22 +31,49 @@
     .buttondiv {
         border: solid rgb(242, 242, 242);
     }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: darkgrey;
+        color:rgb(242, 242, 242);
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 4px;
+
+        bottom: 100%;
+        left: 50%;
+        margin-left: -60px;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
 </style>
 
 <div class="center-screen">
     <div class="buttons-vertical">
         <div class="buttondiv">
-            <a href="makepost">
-                <button type="button">CREATE A CHARACTER</button>
-            </a>
+            <div class="tooltip">Create a new character
+                <a href="makepost">
+                    <button type="button">CREATE</button>
+                </a>
+            </div>
         </div>
 
         <br>
 
         <div class="buttondiv">
-            <a href="seeposts">
-                <button type="button">SEE ALL CHARACTERS</button>
-            </a>
+            <div class="tooltip">See all characters
+                <a href="seeposts">
+                    <button type="button">SEE ALL</button>
+                </a>
+            </div>
         </div>
     </div>
 </div>
