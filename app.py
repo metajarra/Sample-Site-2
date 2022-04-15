@@ -44,7 +44,7 @@ def seeposts():
     currentcount = int(cfile.read())
     cfile.close()
 
-    return render_template("seeposts.html", characters = oldCharacters)
+    return render_template("seeposts.html", characters = oldCharacters, charcount = currentcount)
 
 @app.route("/writetochars", methods=["POST", "GET"])
 def writeToCharacters():    
