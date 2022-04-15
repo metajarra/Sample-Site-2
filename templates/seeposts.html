@@ -24,9 +24,11 @@
                     let charlist = "{{ characters }}";
                     let charcount = parseInt("{{ charcount }}");
 
-                    const newpara = document.createElement("p");
-                    newpara.innerHTML = "{{ characters[0].name }}";
-                    document.getElementById("maindiv").appendChild(newpara);
+                    for (let i = 0; i < charcount - 1; i++){
+                        const newpara = document.createElement("p");
+                        newpara.innerHTML = "{{ characters[" + String(i) + "].name }}";
+                        document.getElementById("maindiv").appendChild(newpara);
+                    }
                 </script>
             {% endif %}
         </div>
