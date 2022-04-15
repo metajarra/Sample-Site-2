@@ -21,7 +21,8 @@
         <div maindiv id="maindiv">
             {% if characters %}
                 {% for item in characters %}
-                    <p>{{ item.name }}</p>
+                <!--Input whatever HTML elements you want to be created below:-->    
+                <p>Character: {{ item.name }}</p>
                 {% endfor %}
             {% endif %}
         </div>
