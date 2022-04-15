@@ -104,10 +104,17 @@ def writeToCharacters():
 @app.route("/display", methods=["POST", "GET"])
 def display():
     index = ""
+    filename = "characters_pickled"
+
     if request.method == "POST":
         index = request.form["character_input_button"]
 
-    return render_template("display.html", numchosen = index)
+        infile = open(filename, "rb")
+        oldCharacters = pickle.load(infile)
+        infile.close
+
+
+    return render_template("display.html", numchosen = index, characters = oldCharacters)
 
 if __name__ == "__main__":
     app.run()
