@@ -22,6 +22,7 @@
             {% if characters %}
                 <script>
                     let charlist = "{{ characters }}";
+                    let charcount = parseInt("{{ charcount }}");
 
                     const newpara = document.createElement("p");
                     newpara.innerHTML = "{{ characters[0].name }}";

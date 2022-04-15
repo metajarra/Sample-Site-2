@@ -78,6 +78,10 @@ def writeToCharacters():
     else: # Indicates that this is not the first character
         f1.close()
 
+        f1 = open(countfile, "w")
+        f1.write(str(charcount + 1))
+        f1.close()
+
         f2 = open(filename, "rb")
         currentlist = pickle.load(f2)
         f2.close()
