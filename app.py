@@ -121,28 +121,28 @@ def writeToCharacters():
         pickle.dump(currentlist, f2)
         f2.close()
 
-    infcontent = "0"
+    #infcontent = "0"
 
-    cfile = open(countfile, "r")
+    #cfile = open(countfile, "r")
 
-    if int(cfile.read()) != 0:
-        infile = open(filename, "rb")
-        pcontent = pickle.load(infile)
-        infile.close()
+    #if int(cfile.read()) != 0:
+    #    infile = open(filename, "rb")
+    #    pcontent = pickle.load(infile)
+    #    infile.close()
 
-        if pcontent == None:
-            infcontent = "1"
+    #    if pcontent == None:
+    #        infcontent = "1"
         
-        elif pcontent == "":
-            infcontent = "2"
+    #    elif pcontent == "":
+    #        infcontent = "2"
 
-        else:
-            infcontent = "3"
+    #    else:
+    #        infcontent = "3"
 
-    cfile.close()
+    #cfile.close()
 
     # Done
-    return render_template("makepost.html", content = infcontent)
+    return render_template("makepost.html")
     
 @app.route("/display", methods=["POST", "GET"])
 def display():
