@@ -1,3 +1,4 @@
+from email import charset
 from enum import unique
 from imghdr import tests
 from operator import length_hint
@@ -31,7 +32,18 @@ def geo():
 
 @app.route("/makepost")
 def makepost():
-    return render_template("makepost.html")
+    filename = "characters_pickled"
+    countfile = "character_count.txt"
+
+    infile = open(filename, "rb")
+    oldCharacters = pickle.load(infile)
+    infile.close
+
+    cfile = open(countfile, "r")
+    currentcount = int(cfile.read())
+    cfile.close()
+
+    return render_template("makepost.html", characters = oldCharacters, charcount = currentcount)
 
 @app.route("/seeposts")
 def seeposts():
