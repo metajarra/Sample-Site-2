@@ -34,8 +34,6 @@ def makepost():
     filename = "characters_pickled"
     countfile = "character_count.txt"
 
-    infcontent = "0"
-
     cfile = open(countfile, "r")
 
     if int(cfile.read()) != 0:
@@ -120,8 +118,6 @@ def writeToCharacters():
         f2 = open(filename, "wb")
         pickle.dump(currentlist, f2)
         f2.close()
-
-    infcontent = "0"
 
     cfile = open(countfile, "r")
 
