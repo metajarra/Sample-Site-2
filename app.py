@@ -4,7 +4,6 @@ from imghdr import tests
 from operator import length_hint
 import os
 import pickle
-import json
 from flask import Flask, render_template, url_for, request
 
 # CHANGES TO MAKE:
@@ -32,21 +31,21 @@ def geo():
 
 @app.route("/makepost")
 def makepost():
-    filename = "characters_pickled"
-    countfile = "character_count.txt"
+    #filename = "characters_pickled"
+    #countfile = "character_count.txt"
 
-    infile = open(filename, "rb")
-    oldCharacters = pickle.load(infile)
-    infile.close
+    #infile = open(filename, "rb")
+    #oldCharacters = pickle.load(infile)
+    #infile.close
 
-    cfile = open(countfile, "r")
-    currentcount = int(cfile.read())
-    cfile.close()
+    #cfile = open(countfile, "r")
+    #currentcount = int(cfile.read())
+    #cfile.close()
 
-    if currentcount == 0:
-        oldCharacters = "No characters!"
+    #if currentcount == 0:
+    #    oldCharacters = "No characters!"
 
-    return render_template("makepost.html", characters = oldCharacters, charcount = currentcount)
+    return render_template("makepost.html")
 
 @app.route("/seeposts")
 def seeposts():
