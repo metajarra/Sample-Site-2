@@ -46,10 +46,11 @@
             <p>Bio: {{ character.bio }}</p>
             <!--<input class="invisibleinput" id="numofnewbios" name="numofnewbios" value="{{ len(character.bios) }}">
             <input class="invisibleinput" id="numofnewrels" name="numofnewrels" value="{{ len(character.rels) }}">-->
-            <p>new bios: {{ character.bios }}</p>
-            <p>new rels: {{ character.rels }}</p>
             <script>
-                
+                console.log("{{ character.name }}");
+                console.log("{{ character.image }}");
+                console.log("{{ character.bio }}");
+                console.log("{{ character.bios[0] }}");
             </script>
         </form>
     </div>
