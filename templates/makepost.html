@@ -2,6 +2,10 @@
 
 <!--PLEASE improve the style bro please bro pls-->
 <style>
+    body {
+        background-color: rgb(13, 13, 13);
+    }
+
     .center-screen {
         display: flex;
         justify-content: center;
@@ -10,19 +14,20 @@
         min-height: 100vh;
     }
 
+    .buttondiv {
+        border: solid rgb(242, 242, 242);
+    }
+
     button {
         font-size: larger;
-        color: aliceblue;
-        background-color: darkcyan;
+        color: rgb(242, 242, 242);;
+        background: transparent;
+        border: none;
         margin: 1%;
     }
 
     label {
         margin: 1%;
-    }
-
-    div {
-        background-color: lightblue;
     }
 </style>
 
@@ -48,9 +53,11 @@
         <input class="file_submit" type="Submit">
     </form>
 
-    <a href="landing">
-        <button type="button">Back</button>
-    </a>
+    <div class="buttondiv">
+        <a href="landing">
+            <button type="button">Back</button>
+        </a>
+    </div>
 
     <!--<a href="seeposts">
         
