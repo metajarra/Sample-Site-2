@@ -44,10 +44,10 @@
             <p>Name: {{ character.name }}</p>
             <img src="{{ character.image }}" width="256" height="256">
             <p>Bio: {{ character.bio }}</p>
-            <input class="invisibleinput" id="numofnewbios" name="numofnewbios" value="{{ len(character.bios) }}">
-            <input class="invisibleinput" id="numofnewrels" name="numofnewrels" value="{{ len(character.rels) }}">
-            <p>new bios: {{ len(character.bios) }}</p>
-            <p>new rels: {{ len(character.rels) }}</p>
+            <!--<input class="invisibleinput" id="numofnewbios" name="numofnewbios" value="{{ len(character.bios) }}">
+            <input class="invisibleinput" id="numofnewrels" name="numofnewrels" value="{{ len(character.rels) }}">-->
+            <p>new bios: {{ character.bios }}</p>
+            <p>new rels: {{ character.rels }}</p>
             <script>
                 
             </script>
