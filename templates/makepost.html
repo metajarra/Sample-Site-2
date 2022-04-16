@@ -98,7 +98,7 @@
             function newRel() {
                 const label = document.createElement("label");
                 label.for = `r${newRelations}`;
-                label.innerHTML = `Custom ${newRelations + 1}`;
+                label.innerHTML = `Custom Relationship ${newRelations + 1}`;
 
                 const input = document.createElement("input");
                 input.type = "text";
@@ -113,12 +113,6 @@
                 newRelations++;
             }
         </script>
-
-        <label for="r1">Relationship 1:</label>
-        <input type="text" id="r1" name="r1"><br><br>
-        
-        <label for="r2">Relationship 2:</label>
-        <input type="text" id="r2" name="r2"><br><br>
 
         <!--PLEASE NOTE: select-type input fields are still accepted as form data, for more info see here: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select-->
 
