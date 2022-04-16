@@ -43,7 +43,10 @@ def makepost():
     currentcount = int(cfile.read())
     cfile.close()
 
-    return render_template("makepost.html")
+    if currentcount == 0:
+        oldCharacters = "No characters!"
+
+    return render_template("makepost.html", characters = oldCharacters, charcount = currentcount)
 
 @app.route("/seeposts")
 def seeposts():
