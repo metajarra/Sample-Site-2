@@ -71,7 +71,7 @@
             function newBio() {
                 const label = document.createElement("label");
                 label.for = `nb${newAppends}`;
-                label.innerHTML = `Custom ${newAppends}`;
+                label.innerHTML = `Custom ${newAppends + 1}`;
 
                 const input = document.createElement("input");
                 input.type = "text";
@@ -81,12 +81,18 @@
                 form.appendChild(label);
                 form.appendChild(input);
                 form.appendChild(document.createElement("br"));
+                form.appendChild(document.createElement("br"));
 
                 console.log("new append: " + newAppends);
 
                 newAppends++;
             }
         </script>
+
+        <div id="relationshipdiv">
+            <p>{{ characters }}</p>
+            <p>{{ charcount }}</p>
+        </div>
 
         <label for="r1">Relationship 1:</label>
         <input type="text" id="r1" name="r1"><br><br>
