@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-<!--PLEASE improve the style bro please bro pls-->
 <style>
     body {
         background-color: rgb(13, 13, 13);
@@ -51,19 +50,22 @@
         <!--<p>{{ characters }}</p>
         <p>{{ charcount }}</p>-->
 
-        <label for="text">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
+        <div class="biodiv">
+            <label for="text">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
 
-        <label for="image">Image SRC:</label>
-        <input type="text" id="image" name="image"><br><br>
+            <label for="image">Image SRC:</label>
+            <input type="text" id="image" name="image"><br><br>
 
-        <label for="bio">Biography:</label>
-        <input type="text" id="bio" name="bio"><br><br>
+            <label for="bio">Biography:</label>
+            <input type="text" id="bio" name="bio"><br><br>
+        </div>
 
         <button onclick="newBio()">+</button>
+        <br><br>
 
         <script>
-            let form = document.getElementById("mainform");
+            let form = document.getElementById("biodiv");
             let newAppends = 0;
 
             function newBio() {
