@@ -47,7 +47,10 @@
 </style>
 
 <div class="center-screen">
-    <form action="/writetochars" method="POST">
+    <form action="/writetochars" method="POST" id="mainform">
+        <p>{{ characters }}</p>
+        <p>{{ charcount }}</p>
+
         <label for="text">Name:</label>
         <input type="text" id="name" name="name"><br><br>
 
@@ -57,6 +60,28 @@
         <label for="bio">Biography:</label>
         <input type="text" id="bio" name="bio"><br><br>
 
+        <button onclick="newBio()">+</button>
+
+        <script>
+            let form = document.getElementById("mainform");
+            let newAppends = 0;
+
+            function newBio() {
+                let label = document.createElement("label");
+                label.for = "nb0";
+                label.innerHTML = "Custom 0";
+
+                let input = document.createElement("input");
+                input.type = "text";
+                input.name = "nb0";
+                input.id = "nb0";
+
+                form.appendChild(label);
+                form.appendChild(input);
+                form.appendChild(document.createElement("br"));
+            }
+        </script>
+
         <label for="r1">Relationship 1:</label>
         <input type="text" id="r1" name="r1"><br><br>
         
@@ -64,7 +89,6 @@
         <input type="text" id="r2" name="r2"><br><br>
 
         <!--PLEASE NOTE: select-type input fields are still accepted as form data, for more info see here: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select-->
-
 
         <input class="file_submit" type="submit" id="submit" name="submit">
     </form>
