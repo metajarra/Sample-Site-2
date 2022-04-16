@@ -14,12 +14,12 @@ from flask import Flask, render_template, url_for, request
 # - display.html has to be slightly changed, to give an int index instead of index read as it is now.
 
 class Character:
-    def __init__(self, name, image, bio, r1, r2, UniqueID):
+    def __init__(self, name, image, bio, bios, rels, UniqueID):
         self.name = name
         self.image = image
         self.bio = bio
-        self.r1 = r1
-        self.r2 = r2
+        self.bios = bios
+        self.rels = rels
         self.UniqueID = UniqueID
 
 app = Flask(__name__)
@@ -79,8 +79,26 @@ def writeToCharacters():
     name = output["name"]
     image = output["image"]
     bio = output["bio"]
-    r1 = output["r1"]
-    r2 = output["r2"]
+    
+    biosfound = True
+    bios = []
+    bioindex = 0
+    while biosfound:
+        newbio = output[f"nb{bioindex}"]
+        biosfound = False
+        if newbio != None and newbio != "":
+            biosfound = True
+            bioindex += 1
+
+    relsfound = True
+    rels = []
+    relindex = 0
+    while relsfound:
+        newrel = output[f"r{relindex}"]
+        relsfound = False
+        if newrel != None and newrel != "":
+            relsfound = True
+            relindex += 1
 
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"
@@ -90,7 +108,7 @@ def writeToCharacters():
     charcount = int(f1.read())
     
     # Define a new class, and create a new instance of it using the form elements as constructor parameters
-    newCharacter = Character(name, image, bio, r1, r2, charcount)
+    newCharacter = Character(name, image, bio, bios, rels, charcount)
 
     if charcount == 0: # Indicates that this is the first character
         f1.close()
@@ -121,28 +139,28 @@ def writeToCharacters():
         pickle.dump(currentlist, f2)
         f2.close()
 
-    #infcontent = "0"
+    infcontent = "0"
 
-    #cfile = open(countfile, "r")
+    cfile = open(countfile, "r")
 
-    #if int(cfile.read()) != 0:
-    #    infile = open(filename, "rb")
-    #    pcontent = pickle.load(infile)
-    #    infile.close()
+    if int(cfile.read()) != 0:
+        infile = open(filename, "rb")
+        pcontent = pickle.load(infile)
+        infile.close()
 
-    #    if pcontent == None:
-    #        infcontent = "1"
+        if pcontent == None:
+            infcontent = "1"
         
-    #    elif pcontent == "":
-    #        infcontent = "2"
+        elif pcontent == "":
+            infcontent = "2"
 
-    #    else:
-    #        infcontent = "3"
+        else:
+            infcontent = "3"
 
-    #cfile.close()
+    cfile.close()
 
     # Done
-    return render_template("makepost.html")
+    return render_template("makepost.html", content = infcontent)
     
 @app.route("/display", methods=["POST", "GET"])
 def display():
