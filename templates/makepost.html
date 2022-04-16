@@ -9,6 +9,13 @@
         color:rgb(242, 242, 242);
     }
 
+    .invisibleinput {
+        width: 0px;
+        height: 0px;
+        background: transparent;
+        border: none;
+    }
+
     .center-screen {
         display: flex;
         justify-content: center;
@@ -55,7 +62,7 @@
         <div id="biodiv">
             <p>Biographical Information:</p>
 
-            <input id="numofnewbios" name="numofnewbios" value="0">
+            <input class="invisibleinput" id="numofnewbios" name="numofnewbios" value="0"><br>
 
             <label for="text">Name:</label>
             <input type="text" id="name" name="name"><br><br>
@@ -89,16 +96,15 @@
                 form.appendChild(document.createElement("br"));
                 form.appendChild(document.createElement("br"));
 
-                document.getElementById("numofnewbios").value = `${newAppends}`;
-
                 newAppends++;
+                document.getElementById("numofnewbios").value = `${newAppends}`;
             }
         </script>
 
         <div id="relationshipdiv">
             <p>Relationship Information:</p>
 
-            <input id="numofnewrels" name="numofnewrels" value="0">
+            <input class="invisibleinput" id="numofnewrels" name="numofnewrels" value="0"><br>
         </div>
 
         <input type="button" onclick="newRel()" value="+">
@@ -123,9 +129,8 @@
                 formr.appendChild(document.createElement("br"));
                 formr.appendChild(document.createElement("br"));
 
-                document.getElementById("numofnewrels").value = `${newRelations}`;
-
                 newRelations++;
+                document.getElementById("numofnewrels").value = `${newRelations}`;
             }
         </script>
 
