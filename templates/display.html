@@ -29,6 +29,13 @@
         color: rgb(242, 242, 242);
         margin: 1%;
     }
+
+    .invisibleinput {
+        width: 0px;
+        height: 0px;
+        background: transparent;
+        border: none;
+    }
 </style>
 
 <body>
@@ -37,8 +44,13 @@
             <p>Name: {{ character.name }}</p>
             <img src="{{ character.image }}" width="256" height="256">
             <p>Bio: {{ character.bio }}</p>
-            <p>Relationship 1: {{ character.r1 }}</p>
-            <p>Relationship 2: {{ character.r2 }}</p>
+            <input class="invisibleinput" id="numofnewbios" name="numofnewbios" value="{{ len(character.bios) }}">
+            <input class="invisibleinput" id="numofnewrels" name="numofnewrels" value="{{ len(character.rels) }}">
+            <p>new bios: {{ len(character.bios) }}</p>
+            <p>new rels: {{ len(character.rels) }}</p>
+            <script>
+                
+            </script>
         </form>
     </div>
 </body>
