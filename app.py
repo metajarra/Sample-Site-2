@@ -34,18 +34,25 @@ def makepost():
     filename = "characters_pickled"
     countfile = "character_count.txt"
 
-    infile = open(filename, "rb")
-    pcontent = pickle.load(infile)
+    infcontent = "0"
 
-    infcontent = ""
-    if pcontent == None:
-        infcontent = "1"
-    
-    elif pcontent == "":
-        infcontent = "2"
+    cfile = open(countfile, "r")
 
-    else:
-        infcontent = "3"
+    if int(cfile.read()) != 0:
+        infile = open(filename, "rb")
+        pcontent = pickle.load(infile)
+        infile.close()
+
+        if pcontent == None:
+            infcontent = "1"
+        
+        elif pcontent == "":
+            infcontent = "2"
+
+        else:
+            infcontent = "3"
+
+    cfile.close()
 
     #infile = open(filename, "rb")
     #oldCharacters = pickle.load(infile)
