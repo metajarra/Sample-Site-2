@@ -35,13 +35,14 @@ def makepost():
     countfile = "character_count.txt"
 
     infile = open(filename, "rb")
+    pcontent = pickle.load(infile)
+
     infcontent = ""
-
-    if infile == None:
-        infcontent = "nothing 1"
-
-    elif infile == "":
-        infcontent = "nothing 2"
+    if pcontent == None:
+        infcontent = "1"
+    
+    elif pcontent == "":
+        infcontent = "2"
 
     else:
         infcontent = "3"
