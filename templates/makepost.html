@@ -68,17 +68,19 @@
 
             function newBio() {
                 let label = document.createElement("label");
-                label.for = "nb0";
-                label.innerHTML = "Custom 0";
+                label.for = `nb${newAppends}`;
+                label.innerHTML = `Custom ${newAppends}`;
 
                 let input = document.createElement("input");
                 input.type = "text";
-                input.name = "nb0";
-                input.id = "nb0";
+                input.name = `nb${newAppends}`;
+                input.id = `nb${newAppends}`;
 
                 form.appendChild(label);
                 form.appendChild(input);
                 form.appendChild(document.createElement("br"));
+
+                newAppends++;
             }
         </script>
 
