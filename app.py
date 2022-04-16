@@ -32,18 +32,18 @@ def geo():
 
 @app.route("/makepost")
 def makepost():
-    filename = "characters_pickled"
-    countfile = "character_count.txt"
+    #filename = "characters_pickled"
+    #countfile = "character_count.txt"
 
-    infile = open(filename, "rb")
-    oldCharacters = pickle.load(infile)
-    infile.close
+    #infile = open(filename, "rb")
+    #oldCharacters = pickle.load(infile)
+    #infile.close
 
-    cfile = open(countfile, "r")
-    currentcount = int(cfile.read())
-    cfile.close()
+    #cfile = open(countfile, "r")
+    #currentcount = int(cfile.read())
+    #cfile.close()
 
-    return render_template("makepost.html", characters = oldCharacters, charcount = currentcount)
+    return render_template("makepost.html")
 
 @app.route("/seeposts")
 def seeposts():
