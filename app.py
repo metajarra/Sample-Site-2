@@ -34,6 +34,8 @@ def makepost():
     filename = "characters_pickled"
     countfile = "character_count.txt"
 
+    infcontent = "0"
+
     cfile = open(countfile, "r")
 
     if int(cfile.read()) != 0:
@@ -41,14 +43,7 @@ def makepost():
         pcontent = pickle.load(infile)
         infile.close()
 
-        if pcontent == None:
-            infcontent = "1"
-        
-        elif pcontent == "":
-            infcontent = "2"
-
-        else:
-            infcontent = "3"
+        infcontent = pcontent
 
     cfile.close()
 
@@ -119,6 +114,8 @@ def writeToCharacters():
         pickle.dump(currentlist, f2)
         f2.close()
 
+    infcontent = "0"
+
     cfile = open(countfile, "r")
 
     if int(cfile.read()) != 0:
@@ -126,14 +123,7 @@ def writeToCharacters():
         pcontent = pickle.load(infile)
         infile.close()
 
-        if pcontent == None:
-            infcontent = "1"
-        
-        elif pcontent == "":
-            infcontent = "2"
-
-        else:
-            infcontent = "3"
+        infcontent = pcontent
 
     cfile.close()
 
