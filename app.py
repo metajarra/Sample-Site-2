@@ -80,25 +80,18 @@ def writeToCharacters():
     image = output["image"]
     bio = output["bio"]
     
-    biosfound = True
     bios = []
-    bioindex = 0
-    while biosfound:
-        newbio = output[f"nb{bioindex}"]
-        biosfound = False
-        if newbio != None and newbio != "":
-            biosfound = True
-            bioindex += 1
+    biocount = int(output["numofnewbios"])
 
-    relsfound = True
+    for i in range(biocount):
+        bios.append(output[f"nb{i}"])
+
     rels = []
-    relindex = 0
-    while relsfound:
-        newrel = output[f"r{relindex}"]
-        relsfound = False
-        if newrel != None and newrel != "":
-            relsfound = True
-            relindex += 1
+    relcount = int(output["numofnewrels"])
+
+    for i in range(relcount):
+        rels.append(output[f"r{i}"])
+
 
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"

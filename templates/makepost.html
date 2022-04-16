@@ -55,6 +55,8 @@
         <div id="biodiv">
             <p>Biographical Information:</p>
 
+            <div id="numofnewbios" name="numofnewbios" value="0"></div>
+
             <label for="text">Name:</label>
             <input type="text" id="name" name="name"><br><br>
 
@@ -87,12 +89,16 @@
                 form.appendChild(document.createElement("br"));
                 form.appendChild(document.createElement("br"));
 
+                document.getElementById("numofnewbios").value = `${newAppends}`;
+
                 newAppends++;
             }
         </script>
 
         <div id="relationshipdiv">
             <p>Relationship Information:</p>
+
+            <div id="numofnewrels" name="numofnewrels" value="0"></div>
         </div>
 
         <input type="button" onclick="newRel()" value="+">
@@ -116,6 +122,8 @@
                 formr.appendChild(input);
                 formr.appendChild(document.createElement("br"));
                 formr.appendChild(document.createElement("br"));
+
+                document.getElementById("numofnewrels").value = `${newRelations}`;
 
                 newRelations++;
             }
