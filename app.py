@@ -54,17 +54,6 @@ def makepost():
 
     cfile.close()
 
-    #infile = open(filename, "rb")
-    #oldCharacters = pickle.load(infile)
-    #infile.close
-
-    #cfile = open(countfile, "r")
-    #currentcount = int(cfile.read())
-    #cfile.close()
-
-    #if currentcount == 0:
-    #    oldCharacters = "No characters!"
-
     return render_template("makepost.html", content = infcontent)
 
 @app.route("/seeposts")
@@ -132,8 +121,28 @@ def writeToCharacters():
         pickle.dump(currentlist, f2)
         f2.close()
 
+    infcontent = "0"
+
+    cfile = open(countfile, "r")
+
+    if int(cfile.read()) != 0:
+        infile = open(filename, "rb")
+        pcontent = pickle.load(infile)
+        infile.close()
+
+        if pcontent == None:
+            infcontent = "1"
+        
+        elif pcontent == "":
+            infcontent = "2"
+
+        else:
+            infcontent = "3"
+
+    cfile.close()
+
     # Done
-    return render_template("makepost.html")
+    return render_template("makepost.html", content = infcontent)
     
 @app.route("/display", methods=["POST", "GET"])
 def display():
