@@ -47,11 +47,6 @@
 
 <div class="center-screen">
     <form action="/writetochars" method="POST" id="mainform">
-        <!--<p>{{ characters }}</p>
-        <p>{{ charcount }}</p>-->
-
-        <p>{{ content }}</p>
-
         <div id="biodiv">
             <label for="text">Name:</label>
             <input type="text" id="name" name="name"><br><br>
@@ -85,16 +80,39 @@
                 form.appendChild(document.createElement("br"));
                 form.appendChild(document.createElement("br"));
 
-                console.log("new append: " + newAppends);
-
                 newAppends++;
             }
         </script>
 
         <div id="relationshipdiv">
-            <p>{{ characters }}</p>
-            <p>{{ charcount }}</p>
+            
         </div>
+
+        <input type="button" onclick="newRel()" value="+">
+        <br><br>
+
+        <script>
+            const formr = document.getElementById("relationshipdiv");
+            let newRelations = 0;
+
+            function newRel() {
+                const label = document.createElement("label");
+                label.for = `r${newRelations}`;
+                label.innerHTML = `Custom ${newRelations + 1}`;
+
+                const input = document.createElement("input");
+                input.type = "text";
+                input.name = `r${newRelations}`;
+                input.id = `r${newRelations}`;
+
+                formr.appendChild(label);
+                formr.appendChild(input);
+                formr.appendChild(document.createElement("br"));
+                formr.appendChild(document.createElement("br"));
+
+                newRelations++;
+            }
+        </script>
 
         <label for="r1">Relationship 1:</label>
         <input type="text" id="r1" name="r1"><br><br>
