@@ -43,7 +43,14 @@ def makepost():
         pcontent = pickle.load(infile)
         infile.close()
 
-        infcontent = pcontent
+        if pcontent == None:
+            infcontent = "1"
+        
+        elif pcontent == "":
+            infcontent = "2"
+
+        else:
+            infcontent = "3"
 
     cfile.close()
 
@@ -123,7 +130,14 @@ def writeToCharacters():
         pcontent = pickle.load(infile)
         infile.close()
 
-        infcontent = pcontent
+        if pcontent == None:
+            infcontent = "1"
+        
+        elif pcontent == "":
+            infcontent = "2"
+
+        else:
+            infcontent = "3"
 
     cfile.close()
 
