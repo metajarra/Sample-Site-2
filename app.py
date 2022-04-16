@@ -80,13 +80,13 @@ def writeToCharacters():
     image = output["image"]
     bio = output["bio"]
     
-    bios = ["zoob"]
+    bios = ["temp"]
     biocount = int(output["numofnewbios"])
 
     for i in range(biocount):
         bios.append(output[f"nb{i}"])
 
-    rels = ["zoop"]
+    rels = ["temp"]
     relcount = int(output["numofnewrels"])
 
     for i in range(relcount):
