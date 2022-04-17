@@ -64,13 +64,30 @@
                 }
             </script>-->
             {% for item in bios %}
-                <script>console.log("{{ item }}");</script>
-                <p>{{ item }}</p>
+                <script>
+                    item = "{{ item }}";
+                    const form = document.getElementById("mainform");
+                    
+                    console.log(item);
+                    if(item != "temp"){
+                        const newbio = document.createElement("p");
+                        newbio.innerHTML = "Custom Biographical: " + item;
+                        form.appendChild(newbio);
+                    }
+                </script>
             {% endfor %}
             
-            {% for item in rels %}
-                <script>console.log("{{ item }}");</script>
-                <p>{{ item }}</p>
+            {% for item2 in rels %}
+                <script>
+                    item2 = "{{ item2 }}";
+
+                    console.log(item2);
+                    if(item2 != "temp"){
+                        const newrel = document.createElement("p");
+                        newrel.innerHTML = "Custom Relationship: " + item2;
+                        form.appendChild(newrel);
+                    }
+                </script>
             {% endfor %}
         </form>
     </div>
