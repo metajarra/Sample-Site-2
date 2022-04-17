@@ -168,8 +168,13 @@ def display():
         infile.close
 
         selectCharacter = oldCharacters[int(index)]
+        selectBios = selectCharacter.bios
+        selectBiosLength = len(selectCharacter.bios)
 
-    return render_template("display.html", character = selectCharacter)
+        selectRels = selectCharacter.rels
+        selectRelsLength = len(selectCharacter.rels)
+
+    return render_template("display.html", character = selectCharacter, bios = selectBios, bioslength = selectBiosLength, rels = selectRels, relslength = selectRelsLength)
 
 if __name__ == "__main__":
     app.run()

@@ -40,13 +40,28 @@
 
 <body>
     <div class="center-screen" id="maindiv">
-        <form method="/POST">
+        <form method="/POST" id="mainform">
             <p>Name: {{ character.name }}</p>
             <img src="{{ character.image }}" width="256" height="256">
             <p>Bio: {{ character.bio }}</p>
-            {% for bio in characters.bio %}
-                <p>Custom Biographical:</p>
-            {% endfor %}
+            <script>
+                let bioslength = parseInt("{{ bioslength }}");
+                let relslength = parseInt("{{ relslength }}");
+
+                const form = document.getElementById("mainform");
+
+                for(let i = 0; i < bioslength; i++){
+                    const newpara = document.createElement("p");
+                    newpara.innerHTML = "bios";
+                    form.appendChild(newpara);
+                }
+
+                for(let i = 0; i < relslength; i++){
+                    const newpara = document.createElement("p");
+                    newpara.innerHTML = "rels";
+                    form.appendChild(newpara);
+                }
+            </script>
         </form>
     </div>
 </body>
