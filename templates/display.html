@@ -44,12 +44,9 @@
             <p>Name: {{ character.name }}</p>
             <img src="{{ character.image }}" width="256" height="256">
             <p>Bio: {{ character.bio }}</p>
-            <script>
-                console.log("{{ character.name }}");
-                console.log("{{ character.image }}");
-                console.log("{{ character.bio }}");
-                console.log("{{ character.bios[1] }}");
-            </script>
+            {% for bio in characters.bio %}
+                <p>Custom Biographical: {{ bio }}</p>
+            {% endfor %}
         </form>
     </div>
 </body>
