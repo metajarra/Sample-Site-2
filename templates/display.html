@@ -64,10 +64,12 @@
                 }
             </script>-->
             {% for item in bios %}
+                <script>console.log("{{ item }}");</script>
                 <p>{{ item }}</p>
             {% endfor %}
             
             {% for item in rels %}
+                <script>console.log("{{ item }}");</script>
                 <p>{{ item }}</p>
             {% endfor %}
         </form>
