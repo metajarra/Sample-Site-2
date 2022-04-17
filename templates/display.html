@@ -44,6 +44,7 @@
             <p>Name: {{ character.name }}</p>
             <img src="{{ character.image }}" width="256" height="256">
             <p>Bio: {{ character.bio }}</p>
+            <!--
             <script>
                 let bioslength = parseInt("{{ bioslength }}");
                 let relslength = parseInt("{{ relslength }}");
@@ -52,16 +53,23 @@
 
                 for(let i = 0; i < bioslength; i++){
                     const newpara = document.createElement("p");
-                    newpara.innerHTML = `{{bios${i}}}`;
+                    newpara.innerHTML = "{{bios}}";
                     form.appendChild(newpara);
                 }
 
                 for(let i = 0; i < relslength; i++){
                     const newpara = document.createElement("p");
-                    newpara.innerHTML = `{{rels${i}}}`;
+                    newpara.innerHTML = "{{rels}}";
                     form.appendChild(newpara);
                 }
-            </script>
+            </script>-->
+            {% for item in bios %}
+                <p>{{ item }}</p>
+            {% endfor %}
+            
+            {% for item in rels %}
+                <p>{{ item }}</p>
+            {% endfor %}
         </form>
     </div>
 </body>
