@@ -89,8 +89,9 @@ def writeToCharacters():
     relcount = int(output["numofnewrels"])
 
     for i in range(relcount):
-        rels.append(output[f"r{i}"])
-
+        rel1 = output[f"r{i}"]
+        rel2 = output[f"s{i}"]
+        rels.append(rel1 + rel2)
 
     # Write the new stuff to the appropriate file(s)
     filename = "characters_pickled"

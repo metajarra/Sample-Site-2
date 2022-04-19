@@ -142,7 +142,7 @@
                 for(let i = 0; i < possibleNames.length; i++){
                     if(possibleNames[i] != "None(L)" && possibleNames[i] != "None"){
                         const newOption = document.createElement("option");
-                        newOption.value = `s${newRelations}o${i}`;
+                        newOption.value = possibleNames[i];
                         newOption.innerHTML = possibleNames[i];
 
                         select.appendChild(newOption);
