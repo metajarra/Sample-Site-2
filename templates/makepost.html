@@ -147,22 +147,16 @@
 
                 appendNames();
             }
+
+            function appendNames() {
+                console.log(`Names: {{ names${0} }}`);
+            }
         </script>
 
         {% if names %}
             {% for name in names %}
                 <script>
-                    function appendNames() {
-                        for(let i = 0; i < newRelations; i++){
-                            const newSelect = document.getElementById(`s${i}`);
-
-                            const nameoption = document.createElement("option");
-                            nameoption.value = `${name}`;
-                            nameoption.innerHTML = `${name}`;
-
-                            newSelect.appendChild(nameoption);
-                        }
-                    }
+                    
                 </script>
             {% endfor %}
         {% endif %}
