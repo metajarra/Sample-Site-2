@@ -147,7 +147,9 @@
             }
         </script>
 
-        <!--PLEASE NOTE: select-type input fields are still accepted as form data, for more info see here: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select-->
+        {% for name in names %}
+            <script>console.log(name);</script>
+        {% endfor %}
 
         <input class="file_submit" type="submit" id="submit" name="submit">
     </form>
