@@ -77,7 +77,8 @@
         <script>
             console.log("{{ content }}");
             let zombo = 0;
-            console.log("{{ names[" + "0" + "] }}");
+            let zombstring = `{{ names[${zombo}] }}`;
+            console.log(zombstring);
 
             const form = document.getElementById("biodiv");
             let newAppends = 0;
