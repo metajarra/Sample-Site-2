@@ -77,6 +77,8 @@
         <script>
             console.log("{{ content }}");
             
+            let possibleNames = ["None(L)"];
+
             const form = document.getElementById("biodiv");
             let newAppends = 0;
 
@@ -99,6 +101,12 @@
                 document.getElementById("numofnewbios").value = `${newAppends}`;
             }
         </script>
+
+        {% for name in names %}
+            <script>
+                possibleNames.push("{{name}}");
+            </script>
+        {% endfor %}
 
         <div id="relationshipdiv">
             <p>Relationship Information:</p><input class="invisibleinput" id="numofnewrels" name="numofnewrels" value="0">     
@@ -125,16 +133,21 @@
                 select.name = `s${newRelations}`;
                 select.id = `s${newRelations}`;
 
-                const tempoption1 = document.createElement("option");
-                tempoption1.value = "temp1";
-                tempoption1.innerHTML = "temp 1";
+                const chooseOne = document.createElement("option");
+                chooseOne.value = "default";
+                chooseOne.innerHTML = "Choose one:";
 
-                const tempoption2 = document.createElement("option");
-                tempoption2.value = "temp2";
-                tempoption2.innerHTML = "temp 2";
+                select.appendChild(chooseOne);
+                
+                for(let i = 0; i < possibleNames.length; i++){
+                    if(possibleNames[i] != "None(L)" && possibleNames[i] != "None"){
+                        const newOption = document.createElement("option");
+                        newOption.value = `s${newRelations}o${i}`;
+                        newOption.innerHTML = possibleNames[i];
 
-                select.appendChild(tempoption1);
-                select.appendChild(tempoption2);
+                        select.appendChild(newOption);
+                    }
+                }
 
                 formr.appendChild(label);
                 formr.appendChild(input);
@@ -146,10 +159,6 @@
                 document.getElementById("numofnewrels").value = `${newRelations}`;
             }
         </script>
-
-        {% for name in names %}
-            <script>console.log("{{name}}");</script>
-        {% endfor %}
 
         <input class="file_submit" type="submit" id="submit" name="submit">
     </form>
