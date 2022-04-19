@@ -43,14 +43,7 @@ def makepost():
         pcontent = pickle.load(infile)
         infile.close()
 
-        if pcontent == None:
-            infcontent = "1"
-        
-        elif pcontent == "":
-            infcontent = "2"
-
-        else:
-            infcontent = "3"
+        infcontent = pcontent
 
     cfile.close()
 
