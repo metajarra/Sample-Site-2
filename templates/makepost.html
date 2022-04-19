@@ -79,6 +79,9 @@
             console.log("{{ names }}");
             console.log("{{ ids }}");
 
+            let _names = "{{ names }}";
+            console.log("Names: " + _names);
+
             const form = document.getElementById("biodiv");
             let newAppends = 0;
 
@@ -148,14 +151,6 @@
                 document.getElementById("numofnewrels").value = `${newRelations}`;
             }
         </script>
-
-        {% if names %}
-            {% for name in names %}
-                <script>
-                    console.log(name);
-                </script>
-            {% endfor %}
-        {% endif %}
 
         <!--PLEASE NOTE: select-type input fields are still accepted as form data, for more info see here: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select-->
 
