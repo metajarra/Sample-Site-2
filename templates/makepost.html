@@ -144,20 +144,24 @@
 
                 newRelations++;
                 document.getElementById("numofnewrels").value = `${newRelations}`;
+
+                appendNames();
             }
         </script>
 
         {% if names %}
             {% for name in names %}
                 <script>
-                    for(let i = 0; i < newRelations; i++){
-                        const newSelect = document.getElementById(`s${i}`);
+                    function appendNames() {
+                        for(let i = 0; i < newRelations; i++){
+                            const newSelect = document.getElementById(`s${i}`);
 
-                        const nameoption = document.createElement("option");
-                        nameoption.value = `${name}`;
-                        nameoption.innerHTML = `${name}`;
+                            const nameoption = document.createElement("option");
+                            nameoption.value = `${name}`;
+                            nameoption.innerHTML = `${name}`;
 
-                        newSelect.appendChild(nameoption);
+                            newSelect.appendChild(nameoption);
+                        }
                     }
                 </script>
             {% endfor %}
