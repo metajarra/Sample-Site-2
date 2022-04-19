@@ -147,8 +147,8 @@
             }
         </script>
 
-        {% for name in ids %}
-            <script>console.log(name);</script>
+        {% for name in names %}
+            <script>console.log("{{name}}");</script>
         {% endfor %}
 
         <input class="file_submit" type="submit" id="submit" name="submit">
