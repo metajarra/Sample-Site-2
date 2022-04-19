@@ -35,6 +35,8 @@ def makepost():
     countfile = "character_count.txt"
 
     infcontent = "0"
+    pnames = ["None"]
+    pids = ["None"]
 
     cfile = open(countfile, "r")
 
@@ -45,9 +47,13 @@ def makepost():
 
         infcontent = pcontent
 
+        for n in range(len(pcontent)):
+            pnames.append(pcontent[n].name)
+            pids.append(pcontent[n].UniqueID)
+
     cfile.close()
 
-    return render_template("makepost.html", content = infcontent)
+    return render_template("makepost.html", content = infcontent, names = pnames, ids = pids)
 
 @app.route("/seeposts")
 def seeposts():
@@ -126,6 +132,8 @@ def writeToCharacters():
         f2.close()
 
     infcontent = "0"
+    pnames = ["None"]
+    pids = ["None"]
 
     cfile = open(countfile, "r")
 
@@ -136,10 +144,14 @@ def writeToCharacters():
 
         infcontent = pcontent
 
+        for n in range(len(pcontent)):
+            pnames.append(pcontent[n].name)
+            pids.append(pcontent[n].UniqueID)
+
     cfile.close()
 
     # Done
-    return render_template("makepost.html", content = infcontent)
+    return render_template("makepost.html", content = infcontent, names = pnames, ids = pids)
     
 @app.route("/display", methods=["POST", "GET"])
 def display():
