@@ -119,8 +119,24 @@
                 input.name = `r${newRelations}`;
                 input.id = `r${newRelations}`;
 
+                const select = document.createElement("select");
+                select.name = `s${newRelations}`;
+                select.id = `s${newRelations}`;
+
+                const tempoption1 = document.createElement("option");
+                tempoption1.value = "temp1";
+                tempoption1.innerHTML = "temp 1";
+
+                const tempoption2 = document.createElement("option");
+                tempoption2.value = "temp2";
+                tempoption2.innerHTML = "temp 2";
+
+                select.appendChild(tempoption1);
+                select.appendChild(tempoption2);
+
                 formr.appendChild(label);
                 formr.appendChild(input);
+                formr.appendChild(select);
                 formr.appendChild(document.createElement("br"));
                 formr.appendChild(document.createElement("br"));
 
