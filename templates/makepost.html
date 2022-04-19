@@ -76,9 +76,10 @@
 
         <script>
             console.log("{{ content }}");
-            let zombo = 0;
-            let zombstring = `{{ names[${zombo}] }}`;
-            console.log(zombstring);
+            let names = "{{ names }}";
+            let namelist = names.split(",");
+
+            console.log("namelist[0]");
 
             const form = document.getElementById("biodiv");
             let newAppends = 0;
