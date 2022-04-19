@@ -19,6 +19,9 @@
                 {% for item in characters %}
                 <!--Input whatever HTML elements you want to be created below:-->    
                 <button value="{{ item.UniqueID }}" type="submit" name="character_input_button">Character: {{ item.name }}</button>
+                <script>
+                  console.log("{{ item.name }}");
+                </script>
                 {% endfor %}
             {% endif %}
         </div>
