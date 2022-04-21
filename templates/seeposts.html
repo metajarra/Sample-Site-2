@@ -22,11 +22,13 @@
                 {% endfor %}
                 <script>
                   let count = parseInt("{{ charcount }}");
-                  let buttons = ["temp"];
+                  let buttons = [];
+                  let buttonids = [];
 
                   for(let i = 0; i < count; i++){
-                    console.log("Button found: ID: " + document.getElementById(i).id + " Name: " + document.getElementById(i).name);
                     buttons.push(document.getElementById(i));
+                    buttonids.push(i);
+                    console.log(buttons);
                   }
                 </script>
             {% endif %}
