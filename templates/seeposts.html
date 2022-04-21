@@ -36,8 +36,11 @@
 
                   while(!buttonsdone){
                     for(let i = 0; i < (8 + num * 4); i++){
+                      if(i <= buttons.length){
+                        console.log("circle position " + i);
+                      }
+                      
                       index++;
-                      console.log("circle position " + i);
                     }
 
                     num++;
