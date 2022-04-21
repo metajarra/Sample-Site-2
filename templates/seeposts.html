@@ -17,10 +17,15 @@
         <div maindiv id="maindiv">
             {% if characters %}
                 {% for item in characters %}
-                <!--Input whatever HTML elements you want to be created below:-->    
-                <button value="{{ item.UniqueID }}" type="submit" name="character_input_button">Character: {{ item.name }}</button>
                 <script>
-                  console.log("{{ item.name }}");
+                  const maindiv = document.getElementById("maindiv");
+
+                  const button = document.createElement("button")
+                  button.value = "{{ item.UniqueID }}";
+                  button.type = "submit";
+                  button.name = "character_input_button";
+                  button.innerHTML = "Character: {{ item.name }}";
+                  mandiv.appendChild(button);
                 </script>
                 {% endfor %}
             {% endif %}
