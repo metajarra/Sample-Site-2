@@ -28,8 +28,23 @@
                   for(let i = 0; i < count; i++){
                     buttons.push(document.getElementById(i));
                     buttonids.push(i);
-                    console.log(buttons);
-                    console.log(buttonids);
+                  }
+
+                  let buttonsdone = false;
+                  let num = 0;
+                  let index = 0;
+
+                  while(!buttonsdone){
+                    for(let i = 0; i < (8 + num * 4); i++){
+                      index++;
+                      console.log("circle position 1");
+                    }
+
+                    num++;
+
+                    if(index >= buttons.length){
+                      buttonsdone = true;
+                    }
                   }
                 </script>
             {% endif %}
