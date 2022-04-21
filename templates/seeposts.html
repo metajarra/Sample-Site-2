@@ -17,17 +17,18 @@
         <div maindiv id="maindiv">
             {% if characters %}
                 {% for item in characters %}
-                <script>
-                  const maindiv = document.getElementById("maindiv");
-
-                  const button = document.createElement("button")
-                  button.value = "{{ item.UniqueID }}";
-                  button.type = "submit";
-                  button.name = "character_input_button";
-                  button.innerHTML = "Character: {{ item.name }}";
-                  mandiv.appendChild(button);
-                </script>
+                <!--Input whatever HTML elements you want to be created below:-->    
+                <button value="{{ item.UniqueID }}" id="{{ item.UniqueID }}" type="submit" name="character_input_button">Character: {{ item.name }}</button>
                 {% endfor %}
+                <script>
+                  let count = parseInt("{{ charcount }}");
+                  let buttons = ["temp"];
+
+                  for(let i = 0; i < count; i++){
+                    console.log("Button found: ID: " + document.getElementById(i).id + " Name: " + document.getElementById(i).name);
+                    buttons.append(document.getElementById(i));
+                  }
+                </script>
             {% endif %}
         </div>
     </form>
