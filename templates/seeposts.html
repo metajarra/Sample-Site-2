@@ -25,6 +25,8 @@
                   let buttons = [];
                   let buttonids = [];
 
+                  let buttondegrees = [];
+
                   for(let i = 0; i < count; i++){
                     buttons.push(document.getElementById(i));
                     buttonids.push(i);
@@ -38,6 +40,7 @@
                     for(let i = 0; i < (8 + num * 4); i++){
                       if(i < buttons.length){
                         console.log("circle position " + i + ": " + parseInt((parseInt((360 / buttons.length - 1) * i)) + parseInt(i)));
+                        buttondegrees.push(parseInt((parseInt((360 / buttons.length - 1) * i)) + parseInt(i)));
                       }
 
                       index++;
@@ -48,6 +51,10 @@
                     if(index >= buttons.length){
                       buttonsdone = true;
                     }
+                  }
+
+                  for(let i = 0; i < buttons.length; i++){
+                    console.log(buttons[i]);
                   }
                 </script>
             {% endif %}
