@@ -5,6 +5,10 @@
     background-color: rgb(13, 13, 13);
   }
 
+  .parent {
+    position: relative;
+  }
+
   button {
     color: rgb(242, 242, 242);
     background: transparent;
@@ -13,6 +17,7 @@
 </style>
 
 <body>
+  <div class="parent">
     <form action="/display" method="POST">
         <div maindiv id="maindiv">
             {% if characters %}
@@ -64,4 +69,5 @@
             {% endif %}
         </div>
     </form>
+  </div>
 </body>
