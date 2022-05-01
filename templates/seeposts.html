@@ -28,7 +28,7 @@
   }
 </style>
 
-<body>
+<body> <!--comment-->
   <div class="parent">
     <form action="/display" method="POST">
         <div maindiv id="maindiv" class="maindiv">
@@ -54,7 +54,7 @@
                   let index = 0;
 
                   while(!buttonsdone){
-                    for(let i = 0; i < (8 + num * 4); i++){
+                    for(let i = 0; i < buttons.length; i++){
                       if(i < buttons.length){
                         console.log("circle position " + i + ": " + parseInt((parseInt((360 / buttons.length - 1) * i)) + parseInt(i)));
                         buttondegrees.push(parseInt((parseInt((360 / buttons.length - 1) * i)) + parseInt(i)));
