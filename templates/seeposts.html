@@ -72,7 +72,7 @@
 
                   for(let i = 0; i < buttons.length; i++){
                     console.log(buttons[i]);
-                    buttons[i].style = `top: ${450 - (Math.cos((buttondegrees[i] * Math.PI) / 180) * -225).toString()}px; left: ${450 - (Math.sin((buttondegrees[i] * Math.PI) / 180) * -225).toString()}px;`;
+                    buttons[i].style = `top: ${(50 - Math.sin((buttondegrees[i] * Math.PI) / 180) * 25).toString()}vh; left: ${(50 - Math.cos((buttondegrees[i] * Math.PI) / 180) * 25).toString()}vh;`;
                   }
                 </script>
             {% endif %}
