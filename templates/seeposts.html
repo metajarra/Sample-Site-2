@@ -36,9 +36,9 @@
                 {% for item in characters %}
                 <!--Input whatever HTML elements you want to be created below:-->    
                 <button value="{{ item.UniqueID }}" id="{{ item.UniqueID }}" type="submit" name="character_input_button">{{ item.name }}</button>
-                  {% for rel in item.rels %}
+                  {% for rel in item.relsID %}
                     <script>
-                      console.log("{{ rel }}");
+                      console.log("ID: {{ rel }}");
                     </script>
                   {% endfor %}
                 {% endfor %}
