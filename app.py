@@ -14,12 +14,13 @@ from flask import Flask, render_template, url_for, request
 # - display.html has to be slightly changed, to give an int index instead of index read as it is now.
 
 class Character:
-    def __init__(self, name, image, bio, bios, rels, UniqueID):
+    def __init__(self, name, image, bio, bios, rels, relsID, UniqueID):
         self.name = name
         self.image = image
         self.bio = bio
         self.bios = bios
         self.rels = rels
+        self.relsID = relsID
         self.UniqueID = UniqueID
 
 app = Flask(__name__)
@@ -73,7 +74,8 @@ def seeposts():
 @app.route("/writetochars", methods=["POST", "GET"])
 def writeToCharacters():    
     output = request.form.to_dict()
-    
+    filename = "characters_pickled"
+
     # Get each element from the form as a unique string
     name = output["name"]
     image = output["image"]
@@ -88,20 +90,27 @@ def writeToCharacters():
     rels = ["temp"]
     relcount = int(output["numofnewrels"])
 
+    relsID = ["temp"]
+
     for i in range(relcount):
         rel1 = output[f"r{i}"]
         rel2 = output[f"s{i}"]
-        rels.append(rel1 + ": " + rel2)
+
+        tempfile = open(filename, "rb")
+        tempchars = tempfile.read()
+        tempfile.close()
+
+        rels.append(rel1 + ": " + tempchars[int(rel2)].name)
+        relsID.append(rel2)
 
     # Write the new stuff to the appropriate file(s)
-    filename = "characters_pickled"
     countfile = "character_count.txt"
 
     f1 = open(countfile, "r")
     charcount = int(f1.read())
     
     # Define a new class, and create a new instance of it using the form elements as constructor parameters
-    newCharacter = Character(name, image, bio, bios, rels, charcount)
+    newCharacter = Character(name, image, bio, bios, rels, relsID, charcount)
 
     if charcount == 0: # Indicates that this is the first character
         f1.close()
