@@ -96,11 +96,7 @@ def writeToCharacters():
         rel1 = output[f"r{i}"]
         rel2 = output[f"s{i}"]
 
-        tempfile = open(filename, "rb")
-        tempchars = tempfile.read()
-        tempfile.close()
-
-        rels.append(rel1 + ": " + tempchars[int(rel2)].name)
+        rels.append(rel1 + ": " + rel2)
         relsID.append(rel2)
 
     # Write the new stuff to the appropriate file(s)
