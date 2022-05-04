@@ -100,7 +100,7 @@ def writeToCharacters():
         tempchars = pickle.load(tempfile)
         tempfile.close()
 
-        rels.append(rel1 + ": " + rel2 + ": ")
+        rels.append(rel1 + ": " + rel2 + ": " + tempchars)
         relsID.append(rel2)
 
     # Write the new stuff to the appropriate file(s)
