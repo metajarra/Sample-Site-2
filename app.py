@@ -98,9 +98,9 @@ def writeToCharacters():
 
         tempfile = open(filename, "rb")
         tempchars = pickle.load(tempfile)
-        tempchars.close()
+        tempfile.close()
 
-        rels.append(rel1 + ": " + rel2 + ": " + tempchars)
+        rels.append(rel1 + ": " + rel2 + ": ")
         relsID.append(rel2)
 
     # Write the new stuff to the appropriate file(s)
