@@ -96,9 +96,9 @@ def writeToCharacters():
         rel1 = output[f"r{i}"]
         rel2 = output[f"s{i}"]
 
-        tempfile = open(filename, "r")
-        tempchars = tempfile.read()
-        tempfile.close()
+        tempfile = open(filename, "rb")
+        tempchars = pickle.load(tempfile)
+        tempchars.close()
 
         rels.append(rel1 + ": " + rel2 + ": " + tempchars)
         relsID.append(rel2)
