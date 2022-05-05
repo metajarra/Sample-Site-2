@@ -116,8 +116,10 @@
                       }
                     }
 
-                    //let start = conid.substring(0, breakindex);
-                    //let end = conid.substring(breakindex + 1, conid.length - 1);
+                    let start = conid.substring(0, breakindex);
+                    let end = conid.substring(breakindex + 1, conid.length - 1);
+
+                    console.log(`Start: ${start}. End: ${end}`);
 
                     connectors[i].style = `left: 50vw; top: 50vh; width: 25vw; height: 4px; transform: rotate(20deg);`;
                   }
