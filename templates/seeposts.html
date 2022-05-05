@@ -135,7 +135,7 @@
                     console.log(`SPX: ${startposX} SPY: ${startposY} EPX: ${endposX} EPY: ${endposY}`);
                     console.log(`Angle: ${_angle} X: ${hypX} Y: ${hypY} div: ${hypX / hypY}`);
 
-                    connectors[i].style = `left: ${startposX + (hypX / 2)}vw; top: ${startposY + (hypY / 2)}vh; width: ${_length.toString()}px; height: 4px; transform: rotate(${_angle}deg);`;
+                    connectors[i].style = `left: ${startposX + (hypX / 2)}vw; top: ${startposY + (hypY / 2)}vh; width: ${_length.toString()}vh; height: 4px; transform: rotate(${_angle}deg);`;
                   }
                 </script>
             {% endif %}
