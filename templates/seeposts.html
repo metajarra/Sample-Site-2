@@ -128,7 +128,7 @@
                     let hypX = endposX - startposX;
                     let hypY = endposY - startposY;
 
-                    let _angle = Math.atan(hypY / hypX);
+                    let _angle = Math.atan2(hypY / hypX) * 180 / Math.PI;
                     let _length = Math.sqrt((hypX * hypX) + (hypY * hypY));
 
                     console.log(`Start: ${start}: ${buttondegrees[parseInt(start) - 1]}. End: ${end}: ${buttondegrees[parseInt(end) - 1]}`);
