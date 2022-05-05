@@ -39,7 +39,9 @@
                 <button value="{{ item.UniqueID }}" id="{{ item.UniqueID }}" type="submit" name="character_input_button">{{ item.name }}</button>
                   {% for rel in item.relsID %}
                     <script>
-                      console.log("ID: {{ item.UniqueID }} | {{ rel }}");
+                      if("{{ rel }}" != "temp"){
+                        console.log("ID: {{ item.UniqueID }} | {{ rel }}");
+                      }
                     </script>
                   {% endfor %}
                 {% endfor %}
