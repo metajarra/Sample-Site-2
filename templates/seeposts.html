@@ -35,10 +35,10 @@
             {% if characters %}
                 {% for item in characters %}
                 <!--Input whatever HTML elements you want to be created below:-->    
-                <!--Yellow square: https://thumbs.dreamstime.com/b/abstract-yellow-glitter-background-seamless-square-texture-til-tile-ready-126206817.jpg-->
+                <!--Yellow square: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Square_Yellow.svg/1200px-Square_Yellow.svg.png-->
                 <button value="{{ item.UniqueID }}" id="{{ item.UniqueID }}" type="submit" name="character_input_button">{{ item.name }}</button>
                   {% for rel in item.relsID %}
-                  <img id = "{{ item.UniqueID }}|{{ rel }}" src="https://thumbs.dreamstime.com/b/abstract-yellow-glitter-background-seamless-square-texture-til-tile-ready-126206817.jpg">
+                  <img id = "{{ item.UniqueID }}|{{ rel }}" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Square_Yellow.svg/1200px-Square_Yellow.svg.png">
                     <!--
                     <script>
                       if("{{ rel }}" != "temp"){
@@ -47,7 +47,7 @@
                         
                         const _newimage = document.createElement("img");
                         _newimage.id = _id;             
-                        _newimage.src = "https://thumbs.dreamstime.com/b/abstract-yellow-glitter-background-seamless-square-texture-til-tile-ready-126206817.jpg";
+                        _newimage.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Square_Yellow.svg/1200px-Square_Yellow.svg.png";
 
                         document.getElementById("maindiv").appendChild(_newimage);
                       }
