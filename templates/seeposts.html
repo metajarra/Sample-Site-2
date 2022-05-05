@@ -38,8 +38,6 @@
                 <!--Yellow square: https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Square_Yellow.svg/1200px-Square_Yellow.svg.png-->
                 <button value="{{ item.UniqueID }}" id="{{ item.UniqueID }}" type="submit" name="character_input_button">{{ item.name }}</button>
                   {% for rel in item.relsID %}
-                  <img id = "{{ item.UniqueID }}|{{ rel }}" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Square_Yellow.svg/1200px-Square_Yellow.svg.png">
-                    <!--
                     <script>
                       if("{{ rel }}" != "temp"){
                         console.log("ID: {{ item.UniqueID }} | {{ rel }}");
@@ -51,7 +49,7 @@
 
                         document.getElementById("maindiv").appendChild(_newimage);
                       }
-                    </script>-->
+                    </script>
                   {% endfor %}
                 {% endfor %}
                 <script>
