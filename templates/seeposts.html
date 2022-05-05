@@ -35,10 +35,11 @@
             {% if characters %}
                 {% for item in characters %}
                 <!--Input whatever HTML elements you want to be created below:-->    
+                <!--Yellow square: https://thumbs.dreamstime.com/b/abstract-yellow-glitter-background-seamless-square-texture-til-tile-ready-126206817.jpg-->
                 <button value="{{ item.UniqueID }}" id="{{ item.UniqueID }}" type="submit" name="character_input_button">{{ item.name }}</button>
                   {% for rel in item.relsID %}
                     <script>
-                      console.log("ID: {{ rel }}");
+                      console.log("ID: {{ item.UniqueID }} | {{ rel }}");
                     </script>
                   {% endfor %}
                 {% endfor %}
