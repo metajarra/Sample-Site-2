@@ -107,7 +107,18 @@
 
                   for(let i = 0; i < connectors.length; i++){
                     console.log(`Connector: ${i}: ${connectors[i].id}`);
-                    connectors[i].style = "left: 50vw; top: 50vh; width: 25vw; height: 4px; transform: rotate(20deg);";
+
+                    let breakindex = 0;
+                    for(let j = 0; j < connectors[i].id.length; j++){
+                      if(connectors[i].id.charat(j) == "|"){
+                        breakindex = j;
+                      }
+                    }
+
+                    //let start = connectors[i].id.substring(0, breakindex);
+                    //let end = connectors[i].id.substring(breakindex + 1, connectors[i].id.length - 1);
+
+                    connectors[i].style = `left: 50vw; top: 50vh; width: 25vw; height: 4px; transform: rotate(${toString(20)}deg);`;
                   }
                 </script>
             {% endif %}
