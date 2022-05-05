@@ -38,11 +38,20 @@
                 <!--Yellow square: https://thumbs.dreamstime.com/b/abstract-yellow-glitter-background-seamless-square-texture-til-tile-ready-126206817.jpg-->
                 <button value="{{ item.UniqueID }}" id="{{ item.UniqueID }}" type="submit" name="character_input_button">{{ item.name }}</button>
                   {% for rel in item.relsID %}
+                  <img id = "{{ item.UniqueID }}|{{ rel }}" src="https://thumbs.dreamstime.com/b/abstract-yellow-glitter-background-seamless-square-texture-til-tile-ready-126206817.jpg">
+                    <!--
                     <script>
                       if("{{ rel }}" != "temp"){
                         console.log("ID: {{ item.UniqueID }} | {{ rel }}");
+                        let _id = "{{ item.UniqueID }}|{{ rel }}";
+                        
+                        const _newimage = document.createElement("img");
+                        _newimage.id = _id;             
+                        _newimage.src = "https://thumbs.dreamstime.com/b/abstract-yellow-glitter-background-seamless-square-texture-til-tile-ready-126206817.jpg";
+
+                        document.getElementById("maindiv").appendChild(_newimage);
                       }
-                    </script>
+                    </script>-->
                   {% endfor %}
                 {% endfor %}
                 <script>
