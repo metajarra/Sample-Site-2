@@ -101,7 +101,7 @@ def writeToCharacters():
         tempfile.close()
 
         rels.append(rel1 + ": " + str(tempchars[int(rel2) - 2].name))
-        relsID.append(rel2 - 2)
+        relsID.append(int(rel2) - 2)
 
     # Write the new stuff to the appropriate file(s)
     countfile = "character_count.txt"
