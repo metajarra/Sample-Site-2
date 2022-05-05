@@ -107,18 +107,19 @@
 
                   for(let i = 0; i < connectors.length; i++){
                     console.log(`Connector: ${i}: ${connectors[i].id}`);
+                    conid = connectors[i].id.toString();
 
                     let breakindex = 0;
-                    for(let j = 0; j < connectors[i].id.length; j++){
-                      if(connectors[i].id.charat(j) == "|"){
+                    for(let j = 0; j < conid.length; j++){
+                      if(conid.charat(j) == "|"){
                         breakindex = j;
                       }
                     }
 
-                    //let start = connectors[i].id.substring(0, breakindex);
-                    //let end = connectors[i].id.substring(breakindex + 1, connectors[i].id.length - 1);
+                    //let start = conid.substring(0, breakindex);
+                    //let end = conid.substring(breakindex + 1, conid.length - 1);
 
-                    connectors[i].style = `left: 50vw; top: 50vh; width: 25vw; height: 4px; transform: rotate(${toString(20)}deg);`;
+                    connectors[i].style = `left: 50vw; top: 50vh; width: 25vw; height: 4px; transform: rotate(20deg);`;
                   }
                 </script>
             {% endif %}
