@@ -26,6 +26,13 @@
     left: 50%;
     transform: translate(-50%, 0);
   }
+
+  img {
+    position: absolute;
+    
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
 </style>
 
 <body> <!--comment-->
@@ -44,10 +51,11 @@
                         let _id = "{{ item.UniqueID }}|{{ rel }}";
                         
                         const _newimage = document.createElement("img");
-                        _newimage.id = _id;             
+                        _newimage.id = _id;  
+                        _newimage.name = "connector";           
                         _newimage.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Square_Yellow.svg/1200px-Square_Yellow.svg.png";
 
-                        document.getElementById("maindiv").appendChild(_newimage);
+                        document.getElementById("{{maindiv}}").appendChild(_newimage);
                       }
                     </script>
                   {% endfor %}
@@ -58,6 +66,8 @@
                   let buttonids = [];
 
                   let buttondegrees = [];
+
+                  let connectors = document.getElementsByName("connector");
 
                   for(let i = 0; i < count; i++){
                     buttons.push(document.getElementById(i));
@@ -91,6 +101,10 @@
                   for(let i = 0; i < buttons.length; i++){
                     console.log(buttons[i]);
                     buttons[i].style = `top: ${(50 - Math.sin((buttondegrees[i] * Math.PI) / 180) * 25).toString()}vh; left: ${(50 - Math.cos((buttondegrees[i] * Math.PI) / 180) * 25 * 0.5625).toString()}vw;`;
+                  }
+
+                  for(let i = 0; i < connectors.length; i++){
+                    console.log(`Connector: ${i}`);
                   }
                 </script>
             {% endif %}
