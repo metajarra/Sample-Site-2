@@ -119,8 +119,8 @@
                     let start = conid.substring(0, breakindex);
                     let end = conid.substring(breakindex + 1, conid.length);
 
-                    let startposX = Math.cos((buttondegrees[parseInt(start)] * Math.PI) / 180) * 25;
-                    let startposY = Math.sin((buttondegrees[parseInt(start)] * Math.PI) / 180) * 25;
+                    let startposX = 50 -Math.cos((buttondegrees[parseInt(start)] * Math.PI) / 180) * 25;
+                    let startposY = 50 -Math.sin((buttondegrees[parseInt(start)] * Math.PI) / 180) * 25;
                     
                     let endposX = 50 - Math.cos((buttondegrees[parseInt(end)] * Math.PI) / 180) * 25
                     let endposY = 50 - Math.sin((buttondegrees[parseInt(end)] * Math.PI) / 180) * 25;
