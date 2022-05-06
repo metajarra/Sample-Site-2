@@ -119,10 +119,10 @@
                     let start = conid.substring(0, breakindex);
                     let end = conid.substring(breakindex + 1, conid.length);
 
-                    let startposX = 50 - Math.cos((buttondegrees[parseInt(start)] * Math.PI) / 180) * 25 * 0.5625;
+                    let startposX = 50 - Math.cos((buttondegrees[parseInt(start)] * Math.PI) / 180) * 25;
                     let startposY = 50 - Math.sin((buttondegrees[parseInt(start)] * Math.PI) / 180) * 25;
                     
-                    let endposX = 50 - Math.cos((buttondegrees[parseInt(end)] * Math.PI) / 180) * 25 * 0.5625;
+                    let endposX = 50 - Math.cos((buttondegrees[parseInt(end)] * Math.PI) / 180) * 25;
                     let endposY = 50 - Math.sin((buttondegrees[parseInt(end)] * Math.PI) / 180) * 25;
 
                     let hypX = endposX - startposX;
@@ -135,7 +135,7 @@
                     console.log(`SPX: ${startposX} SPY: ${startposY} EPX: ${endposX} EPY: ${endposY}`);
                     console.log(`Angle: ${_angle} X: ${hypX} Y: ${hypY} div: ${hypX / hypY}`);
 
-                    connectors[i].style = `left: ${50 + (hypX / 2)}vw; top: ${startposY + (hypY / 2)}vh; width: ${_length * 0.75}vw; height: 4px; transform: rotate(${_angle}deg);`;
+                    connectors[i].style = `left: ${startposX + (hypX / 2) * 0.5625}vw; top: ${startposY + (hypY / 2)}vh; width: ${_length * 0.75}vw; height: 4px; transform: rotate(${_angle}deg);`;
                   }
                 </script>
             {% endif %}
