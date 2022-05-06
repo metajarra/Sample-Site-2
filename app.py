@@ -6,13 +6,6 @@ import os
 import pickle
 from flask import Flask, render_template, url_for, request
 
-# CHANGES TO MAKE:
-# - geo.html is fine. maybe should be renamed, but otherwise the way it's organized here and its relations to other files are at least ok for now.
-# - makepost.html is also fine. again maybe should be renamed, but it works ok.
-# - writetomarkers has to be changed. specifically, it should both be renamed and should be reconfigured to use JSON to write unique classes (maybe? ideally?)  of characters to the list. this is the most important part by far
-# - seeposts.html is fine, but should be renamed.
-# - display.html has to be slightly changed, to give an int index instead of index read as it is now.
-
 class Character:
     def __init__(self, name, image, bio, bios, rels, relsID, UniqueID):
         self.name = name
@@ -54,7 +47,7 @@ def makepost():
 
     cfile.close()
 
-    return render_template("makepost.html", content = infcontent, names = pnames, ids = pids)
+    return render_template("createcharacter.html", content = infcontent, names = pnames, ids = pids)
 
 @app.route("/seeposts")
 def seeposts():
@@ -69,7 +62,7 @@ def seeposts():
     currentcount = int(cfile.read())
     cfile.close()
 
-    return render_template("seeposts.html", characters = oldCharacters, charcount = currentcount)
+    return render_template("viewcharacters.html", characters = oldCharacters, charcount = currentcount)
 
 @app.route("/writetochars", methods=["POST", "GET"])
 def writeToCharacters():    
@@ -161,7 +154,7 @@ def writeToCharacters():
     cfile.close()
 
     # Done
-    return render_template("makepost.html", content = infcontent, names = pnames, ids = pids)
+    return render_template("createcharacter.html", content = infcontent, names = pnames, ids = pids)
     
 @app.route("/display", methods=["POST", "GET"])
 def display():
