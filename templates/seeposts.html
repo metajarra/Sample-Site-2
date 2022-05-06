@@ -87,7 +87,7 @@
                         buttondegrees.push(parseInt((parseInt((360 / buttons.length - 1) * i)) + parseInt(i)));
 
                         let circledegs = parseInt((parseInt((360 / buttons.length - 1) * i)) + parseInt(i));
-                        console.log("button coords | 960 x 540: " + `X: ${Math.cos((circledegs * Math.PI) / 180) * 225} ` + `Y: ${Math.sin((circledegs * Math.PI) / 180) * 225}`);
+                        console.log("button coords | vw x vh: " + `X: ${50 - Math.cos((circledegs * Math.PI) / 180) * 25} ` + `Y: ${50 - Math.sin((circledegs * Math.PI) / 180) * 25}`);
                       }
 
                       index++;
